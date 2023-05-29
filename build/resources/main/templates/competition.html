@@ -1,0 +1,152 @@
+<!DOCTYPE html>
+<html lang="ko" xmlns:th="http://www.thymeleaf.org">
+<head th:replace="fragments/header :: header">
+  <title th:title="${competition.title}"></title>
+  <meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/>
+</head>
+<body class="competitions" id="competitions__page">
+<header th:replace="fragments/bodyHeader :: bodyHeader"/>
+<main id="main">
+  <section id="competition" class="container">
+    <div class="col-md-8 mx-auto">
+      <div class="post-item position-relative h-100 competition__content">
+        <div class="competition__content-meta">
+          <div class="d-flex align-items-center competition__date"
+               th:with="condition=${competition.isExpired}">
+            <input type="hidden" id="event_id" th:value="${competition.id}">
+            <span th:if="${condition}" class="ps-2 post-date__expired">마감됨</span>
+            <span th:unless="${condition}" class="ps-2 post-date"
+                  th:classappend="${competition.DDay} == 0 ? 'post-date__due_today' : ''"
+                  th:text="${competition.DDay} == 0 ? '오늘마감' : 'D-' + ${competition.DDay}">
+            </span>
+          </div>
+          <div class="d-flex align-items-center justify-content-between mb-4 gap-5">
+            <h2 class="post-title" th:text="${competition.title}"></h2>
+            <div class="d-flex align-items-start">
+              <i class="bi bi-eye competition__meta opacity-75"></i>
+              <span class="ps-2 competition__meta" th:text="${competition.viewCount}"></span>
+            </div>
+          </div>
+          <div class="position-relative">
+            <div class="post-content d-flex gap-5">
+              <div class="post-img position-relative overflow-hidden post-img__w-45">
+                <div class="post-img__wrapper">
+                  <div class="post-img__item img__item-wrapper">
+                    <img class="lazy img-fluid" th:data-src="${competition.thumbnail}" alt="">
+                  </div>
+                </div>
+              </div>
+              <div class="d-flex align-content-start flex-column mb-4 gap-3 w-50">
+                <div class="d-flex align-content-start">
+                  <i class="bi bi-calendar-range competition__meta opacity-75 "></i>
+                  <span class="ps-2 competition__meta"
+                        th:text="${#temporals.format(competition.startedAt, 'yyyy.MM.dd')}"></span>
+                  <span class="px-2 competition__meta">
+                      ~
+                    </span>
+                  <span class="competition__meta"
+                        th:text="${#temporals.format(competition.expiredAt, 'yyyy.MM.dd')}"></span>
+                </div>
+                <div class="d-flex align-content-start ">
+                  <i class="bi bi-building competition__meta opacity-75"></i>
+                  <div class="d-flex align-items-center ps-2">
+                        <div class="competition__meta text-overflow__ellipsis"
+                              data-toggle="tooltip"
+                              data-placement="top"
+                              th:text="${competition.organizer}"></div>
+                  </div>
+                </div>
+                <div class="d-flex align-content-start">
+                  <i class="bi bi-person competition__meta opacity-75"></i>
+                  <div class="d-flex align-items-center">
+                    <span class="competition__meta ps-1"
+                          th:each="applicant, applicantStat: ${competition.applicants}"
+                          th:text="${applicantStat.last} ? ${applicant.name} : ${applicant.name} + ', '">
+                    </span>
+                  </div>
+                </div>
+                <div class="d-flex align-content-start">
+                  <i class="bi bi-award competition__meta opacity-75"></i>
+                  <div class="d-flex align-items-center">
+                    <span class="competition__meta ps-1"
+                          th:each="awardBenefit, awardBenefitStat: ${competition.awardBenefits}"
+                          th:text="${awardBenefitStat.last} ? ${awardBenefit.name} : ${awardBenefit.name} + ', '">
+                    </span>
+                  </div>
+                </div>
+                <div class="d-flex align-content-start">
+                  <i class="bi bi-cash-stack competition__meta opacity-75"></i>
+                  <span class="ps-2 competition__meta" th:text="${competition.awardAmount}"></span>
+                </div>
+                <div class="mb-2 d-flex align-items-center post-skills gap-1"
+                     th:unless="${competition.isNoSkill()}">
+                  <i class="bi bi-hash competition__meta opacity-75"></i>
+                  <a
+                      th:href="@{/competitions(skills=${skill})}"
+                      th:unless="${skill.isNoSkill()}"
+                      th:each="skill, skillStat : ${competition.skills}">
+                    <span
+                        class="event__skill"
+                        th:text="${skill.name}">
+                    </span>
+                  </a>
+                </div>
+                <div class="meta d-flex align-content-start gap-3 mt-3">
+                  <div class="d-flex align-items-center">
+                    <a id ="btn__register"
+                        class="post-bookmark btn btn-primary info-btn"
+                       th:href="${competition.originalLink}">
+                      <i class="bi bi-link"></i>
+                      <span>홈페이지 지원</span>
+                    </a>
+                  </div>
+                  <div class="d-flex align-items-center">
+                    <a class="post-bookmark btn info-btn" id="bookmark">
+                      <i class="bi" th:classappend="${isBookmarked} ? 'bi-bookmark-fill' : 'bi-bookmark'"></i>
+                      <i class="bi bi-bookmark-fill bookmark__active"></i>
+                      <span th:text="${competition.bookmarkCount}"></span>
+                    </a>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="post-content d-flex flex-column">
+          [(${competition.content})]
+        </div>
+      </div>
+    </div>
+    </div>
+  </section>
+</main>
+
+<a href="#" class="scroll-top d-flex align-items-center justify-content-center"><i
+    class="bi bi-arrow-up-short"></i></a>
+
+<div id="preloader"></div>
+
+<!-- Vendor JS Files -->
+<script src="/assets/vendor/aos/aos.js"></script>
+<script src="/assets/vendor/isotope-layout/isotope.pkgd.min.js"></script>
+<script src="/assets/vendor/swiper/swiper-bundle.min.js"></script>
+<script src="/assets/vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
+<script src="/assets/vendor/glightbox/js/glightbox.min.js"></script>
+<script src="/assets/vendor/purecounter/purecounter_vanilla.js"></script>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.4/jquery.min.js"></script>
+
+<!-- Template Main JS File -->
+<script src="/assets/js/main.js"></script>
+<script src="/assets/js/lazyloading.js"></script>
+<script src="/assets/js/profile.js"></script>
+
+<script>
+  $(document).ready(function () {
+    $('[data-toggle="tooltip"]').tooltip();
+  });
+  document.addEventListener("DOMContentLoaded", () => {
+    document.querySelectorAll("img").forEach(img => img.classList.add("img-fluid"));
+  })
+</script>
+</body>
+</html>

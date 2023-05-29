@@ -1,0 +1,308 @@
+<!DOCTYPE html>
+<html lang="ko" xmlns:th="http://www.thymeleaf.org">
+<head th:replace="fragments/header :: header">
+  <title>공모전</title>
+  <meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/>
+</head>
+<body class="competitions">
+
+<header th:replace="fragments/bodyHeader :: bodyHeader"/>
+
+<button class="btn" id="filter-close">
+  <i class="bi bi-list"></i>
+</button>
+
+<div class="filter-control pt-5 scroll">
+  <div class = "form-group__search">
+    <div class="d-flex justify-content-between pt-5 pb-2 align-items-center">
+      <span class="text-primary"><b>필터</b></span>
+      <button onclick="clearForm()" class="btn btn-link text-secondary p-0">필터 초기화</button>
+    </div>
+  </div>
+  <form id="filter-form" th:object="${searchOption}" th:action="@{/competitions/search}"
+        method="get"
+        class="filter-control__content d-flex flex-column
+        justify-content-between align-content-center gap-3">
+
+    <div class="form-group__search">
+      <input class="form-control" type="text" th:field="${searchOption.name}"
+             placeholder="공모전 검색">
+    </div>
+
+    <div th:if="${member}"
+         id="skill-form"
+         class="filter-control__content d-flex
+        justify-content-between align-content-center gap-3">
+
+      <div class="d-flex justify-content-start gap-2 pt-2 pb-2 align-content-center w-100">
+        <input class="form-check-input" id="skill-check"
+               type="checkbox"/>
+        <label class="form-check-label" th:for="skill-check">관심기술만 보기</label>
+        <div>
+          <input
+              name="memberSkill"
+              th:each="memberSkill : ${member.skills}"
+              th:unless="${memberSkill.isNoSkill()}"
+              type="hidden" th:value="${memberSkill}">
+        </div>
+      </div>
+    </div>
+
+    <div>
+      <button class="btn dropdown-toggle collapsed" type="button"
+              data-bs-toggle="collapse" data-bs-target="#dropdownSkillMenu"
+              aria-expanded="false" aria-controls="dropdownSkillMenu">
+        <b>관련 기술</b>
+      </button>
+      <div class="collapse form-group" id="dropdownSkillMenu">
+        <div class="form-check" th:each="skill, skillStat : ${skills}">
+          <input class="form-check-input"
+                 type="checkbox" th:field="*{skills}"
+                 th:value="${skill.value}"/>
+          <label class="form-check-label" th:for="${#ids.prev('skills')}"
+                 th:text="${skill.value.name}"/>
+        </div>
+      </div>
+    </div>
+
+    <div>
+      <button class="btn dropdown-toggle collapsed" type="button"
+              data-bs-toggle="collapse" data-bs-target="#dropdownDateMenu"
+              aria-expanded="false" aria-controls="dropdownDateMenu">
+        <b>일시</b>
+      </button>
+      <div class="collapse form-group" id="dropdownDateMenu">
+        <div class="form-check" th:each="dateOption : ${dateOptions}">
+          <input class="form-check-input" type="radio" th:field="*{dateOption}"
+                 th:value="${dateOption}"/>
+          <label class="form-check-label" th:for="${#ids.prev('dateOption')}"
+                 th:text="${dateOption.label}"/>
+        </div>
+      </div>
+    </div>
+
+
+    <div>
+      <button class="btn dropdown-toggle collapsed" type="button"
+              data-bs-toggle="collapse" data-bs-target="#dropdownApplicantsMenu"
+              aria-expanded="false" aria-controls="dropdownApplicantsMenu">
+        <b>응모 대상</b>
+      </button>
+      <div class="collapse form-group" id="dropdownApplicantsMenu">
+        <div class="form-check" th:each="applicantType : ${applicantTypes}">
+          <input class="form-check-input" type="checkbox" th:field="*{applicantTypes}"
+                 th:value="${applicantType.value}"/>
+          <label class="form-check-label" th:for="${#ids.prev('applicantTypes')}"
+                 th:text="${applicantType.value.name}"/>
+        </div>
+      </div>
+    </div>
+
+
+    <div>
+      <button class="btn dropdown-toggle collapsed" type="button"
+              data-bs-toggle="collapse" data-bs-target="#dropdownAwardScaleMenu"
+              aria-expanded="false" aria-controls="dropdownAwardScaleMenu">
+        <b>시상 규모</b>
+      </button>
+      <div class="collapse form-group" id="dropdownAwardScaleMenu">
+        <div class="form-check" th:each="awardScale : ${awardScales}">
+          <input class="form-check-input" type="radio" th:field="*{awardScale}"
+                 th:value="${awardScale.value}"/>
+          <label class="form-check-label" th:for="${#ids.prev('awardScale')}"
+                 th:text="${awardScale.value.name}"/>
+        </div>
+      </div>
+    </div>
+
+    <div>
+      <button class="btn dropdown-toggle collapsed" type="button"
+              data-bs-toggle="collapse" data-bs-target="#dropdownAwardBenefitMenu"
+              aria-expanded="false" aria-controls="dropdownAwardBenefitMenu">
+        <b>시상 혜택</b>
+      </button>
+      <div class="collapse form-group" id="dropdownAwardBenefitMenu">
+        <div class="form-check" th:each="awardBenefit : ${awardBenefits}">
+          <input class="form-check-input"
+                 type="checkbox" th:field="*{awardBenefits}"
+                 th:value="${awardBenefit.value}"/>
+          <label class="form-check-label" th:for="${#ids.prev('awardBenefits')}"
+                 th:text="${awardBenefit.value.name}"/>
+        </div>
+      </div>
+    </div>
+
+    <button class="btn btn-primary" type="submit">Search</button>
+  </form>
+</div>
+
+<main id="main">
+  <section id="recent-blog-posts" class="recent-blog-posts container">
+    <div class="col-md-10 mx-auto">
+      <div class="section-header pt-5 mt-5 d-flex justify-content-between">
+        <h4 class="text-lg-start">
+          총 <span class="text-primary" th:text="${paging.totalElements}"></span> 건이 검색되었습니다.
+        </h4>
+        <div>
+
+        </div>
+      </div>
+      <div class="row gy-5">
+        <a th:each="competition : ${paging}"
+           th:classappend="${competition.isExpired} ? 'outdated' : ''"
+           class="col-md-3 post-item__wrapper"
+           data-aos-delay="100" th:href="@{/competitions/{id}(id=${competition.id})}">
+          <div>
+            <div class="post-item position-relative h-100">
+              <div class="post-img position-relative overflow-hidden">
+                <div class="post-img__wrapper">
+                  <div class="post-img__item">
+                    <img class="lazy img-fluid" th:data-src="${competition.thumbnail}" alt="">
+                    <span class="post-bookmark">
+                          <i class="bi bi-bookmark"></i>
+                          <span th:text="${competition.bookmarkCount}">0</span>
+                        </span>
+                  </div>
+                </div>
+              </div>
+              <div class="post-content d-flex flex-column">
+                <div class="meta d-flex align-items-center text-overflow__ellipsis w-75 post-skills"
+                     th:if="${competition.skills}"
+                     data-toggle="tooltip"
+                     data-placement="top"
+                     th:title="${competition.skills} ?: ''">
+                  <span th:each="skill : ${competition.skills}"
+                        th:unless="${skill.isNoSkill()}"
+                        th:text="${skill.name}"
+                        class="post-skill">
+                  </span>
+                </div>
+                <h3 class="post-title title-overflow__ellipsis" th:text="${competition.title}"></h3>
+                <div class="meta d-flex align-items-center">
+                  <div class="d-flex align-items-center">
+                    <span class="post-organizer text-overflow__ellipsis"
+                          th:text="${competition.organizer}"></span>
+                  </div>
+                </div>
+                <div th:with="condition=${competition.isExpired}"
+                     class="meta d-flex align-content-center justify-content-md-start">
+
+                  <span th:if="${condition}" class="ps-2 post-date__expired">
+                    마감됨
+                  </span>
+                  <span th:unless="${condition}" class="ps-2 post-date"
+                        th:classappend="${competition.DDay} == 0 ? 'post-date__due_today' : ''"
+                        th:text="${competition.DDay} == 0 ? '오늘마감' : 'D-' + ${competition.DDay}">
+                  </span>
+                  <span class="px-2"></span>
+                  <div class="d-flex align-items-center">
+                    <i class="bi bi-eye"></i>
+                    <span class="ps-2"
+                          th:text="${competition.viewCount}">
+                    </span>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </a><!-- End post item -->
+      </div>
+
+      <!-- 페이징처리 시작 -->
+      <script th:if="${!paging.isEmpty()}" th:inline="javascript">
+        /*<![CDATA[*/
+        window.onload = () => {
+          renderPagination();
+
+          function renderPagination() {
+            const pageNumbers = document.querySelectorAll(".page-number");
+            const totalPages = [[${paging.totalPages}]];
+            const searchOption = Object.fromEntries(Object.entries([[${searchOption}]])
+                .filter(([key, value]) => value !== null && value !== "" && typeof value === 'object')
+            );
+            const name = [[${searchOption.name}]];
+            const dateOption = [[${searchOption.dateOption}]];
+            const awardScale = [[${searchOption.awardScale}]];
+            const sort = [[${searchOption.sort}]];
+
+            for (let page = 0; page < totalPages; page++) {
+              const urlParams = new URLSearchParams();
+
+              if (name) {
+                urlParams.append('name', name);
+              }
+              if (dateOption) {
+                urlParams.append('dateOption', dateOption);
+              }
+              if (awardScale) {
+                urlParams.append('awardScale', awardScale);
+              }
+              if (sort) {
+                urlParams.append('sort', sort);
+              }
+              for (const optionEl in searchOption) {
+                for (const el of [...searchOption[optionEl]]) {
+                  urlParams.append(optionEl, el);
+                }
+              }
+              urlParams.append('page', page);
+              console.log(urlParams.toString());
+              pageNumbers[page].href = location.pathname + '?' + urlParams.toString();
+            }
+          }
+        }
+        /*]]>*/
+      </script>
+
+      <div th:if="${!paging.isEmpty()}">
+        <ul class="pagination justify-content-center">
+          <li class="page-item" th:classappend="${!paging.hasPrevious} ? 'disabled'">
+            <a class="page-link" id="page-prev"
+               th:href="@{|?page=${paging.number - 1}|}">
+              <span>이전</span>
+            </a>
+          </li>
+          <li th:each="page: ${#numbers.sequence(0, paging.totalPages -1)}"
+              th:classappend="${page == paging.number} ? 'active'" class="page-item">
+            <a th:text="${page + 1}" class="page-link page-number" th:href="@{|?page=${page}|}"></a>
+          </li>
+          <li class="page-item" th:classappend="${!paging.hasNext} ? 'disabled'">
+            <a class="page-link" id="page-next"
+               th:href="@{|?page=${paging.number + 1}|}">
+              <span>다음</span>
+            </a>
+          </li>
+        </ul>
+      </div>
+    </div>
+    </div>
+  </section>
+</main>
+
+<a href="#" class="scroll-top d-flex align-items-center justify-content-center"><i
+    class="bi bi-arrow-up-short"></i></a>
+
+<div id="preloader"></div>
+
+<!-- Vendor JS Files -->
+<script src="/assets/vendor/aos/aos.js"></script>
+<script src="/assets/vendor/isotope-layout/isotope.pkgd.min.js"></script>
+<script src="/assets/vendor/swiper/swiper-bundle.min.js"></script>
+<script src="/assets/vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
+<script src="/assets/vendor/glightbox/js/glightbox.min.js"></script>
+<script src="/assets/vendor/purecounter/purecounter_vanilla.js"></script>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.4/jquery.min.js"></script>
+
+<!-- Template Main JS File -->
+<script src="/assets/js/main.js"></script>
+<script src="/assets/js/filter.js"></script>
+<script src="/assets/js/lazyloading.js"></script>
+<script src="/assets/js/profile.js"></script>
+
+<script>
+  $(document).ready(function () {
+    $('[data-toggle="tooltip"]').tooltip();
+  });
+</script>
+</body>
+</html>

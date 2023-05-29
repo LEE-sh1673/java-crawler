@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<!-- ======= Header ======= -->
+<header id="header" class="header d-flex align-items-center" th:fragment="bodyHeader">
+  <div class="container-fluid container-xl d-flex align-items-center justify-content-between">
+
+    <div class="d-flex justify-content-start">
+      <a href="/" class="logo d-flex align-items-center">
+        <!-- Uncomment the line below if you also wish to use an image logo -->
+        <!-- <img src="assets/img/logo.png" alt=""> -->
+        <h1>MEET IT ALL</h1>
+      </a>
+      <nav id="navbar" class="navbar">
+        <ul>
+          <li><a href="/competitions">공모전</a></li>
+          <li><a href="/moims">세미나</a></li>
+          <li><a href="/projects">프로젝트</a></li>
+        </ul>
+      </nav>
+    </div>
+
+    <i class="mobile-nav-toggle mobile-nav-show bi bi-list"></i>
+    <i class="mobile-nav-toggle mobile-nav-hide d-none bi bi-x"></i>
+
+    <nav id="navbar__auth" class="navbar" th:with="member = ${member}">
+      <ul th:if="${member}">
+        <li class="d-flex justify-content-center align-content-center">
+          <span id="user__avatar" th:text="${#strings.substring(member.name, 0, 1)}">
+            </span>
+          <input type="hidden" id="member_id" th:value="${member.id}">
+          <div id="user__option" class="d-none login__box">
+            <ul class="d-flex flex-column align-content-start align-items-start justify-content-between p-2">
+              <li class="p-2"><a href="/profile">마이페이지</a></li>
+              <li class="p-2"><a href="/logout">로그아웃</a></li>
+            </ul>
+          </div>
+        </li>
+      </ul>
+      <ul th:unless="${member}">
+        <li>
+            <span id="user__login-btn">
+              로그인
+            </span>
+          <div id="user__login-select" class="d-none login__box">
+            <ul class="d-flex flex-column align-content-start align-items-start justify-content-between p-4 gap-4">
+              <li class="d-flex justify-content-between gap-2 align-content-center">
+                <img width="20px" alt="Google sign-in"
+                     src="https://upload.wikimedia.org/wikipedia/commons/thumb/5/53/Google_%22G%22_Logo.svg/512px-Google_%22G%22_Logo.svg.png" />
+                <a href="/login/google">구글 로그인</a>
+              </li>
+              <li class="d-flex justify-content-between gap-2 align-content-center">
+                <img width="20px" alt="Google sign-in"
+                     src="https://upload.wikimedia.org/wikipedia/commons/thumb/e/e3/KakaoTalk_logo.svg/1200px-KakaoTalk_logo.svg.png" />
+                <a href="/login/kakao">카카오 로그인</a>
+              </li>
+              <li class="d-flex justify-content-between gap-2 align-content-center">
+                <img width="20px" alt="Google sign-in"
+                     src="https://i.namu.wiki/i/ig3m3AyZlWUiyaGdZoSOct75Awvon6QS72IxWML1gYbWk9VMIkOWGGiPq_GrSuS29W9dinnUKSuy1E7j0vwzD0SToDurbPYqeIvuj4W4aGk97Q3VUEpEIAWCF0k6KE3fXQUKXd3MUcSFWKdyQcrdIA.svg">
+                <a href="/login/naver">네이버 로그인</a>
+              </li>
+            </ul>
+          </div>
+        </li>
+      </ul>
+    </nav><!-- .navbar -->
+  </div>
+</header><!-- End Header -->
