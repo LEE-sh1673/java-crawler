@@ -41,7 +41,7 @@
 </td>
 <td>
 <div class="infoBox" id="duration">
-<div class="counter">0.101s</div>
+<div class="counter">0.077s</div>
 <p>duration</p>
 </div>
 </td>
@@ -87,12 +87,12 @@
 </tr>
 <tr>
 <td class="success">썸네일_파싱()</td>
-<td class="success">0.017s</td>
+<td class="success">0.018s</td>
 <td class="success">passed</td>
 </tr>
 <tr>
 <td class="success">유료_여부_파싱()</td>
-<td class="success">0.046s</td>
+<td class="success">0.025s</td>
 <td class="success">passed</td>
 </tr>
 <tr>
@@ -107,7 +107,7 @@
 </tr>
 <tr>
 <td class="success">주최자_파싱()</td>
-<td class="success">0.013s</td>
+<td class="success">0.009s</td>
 <td class="success">passed</td>
 </tr>
 </table>
@@ -115,23 +115,23 @@
 <div id="tab1" class="tab">
 <h2>Standard output</h2>
 <span class="code">
-<pre>2023-05-29 04:48:45.665  INFO 68722 --- [ null to remote] o.o.selenium.remote.ProtocolHandshake    : Detected dialect: W3C
-2023-05-29 04:48:45.699  WARN 68722 --- [    Test worker] o.o.selenium.devtools.CdpVersionFinder   : Unable to find an exact match for CDP version 113, so returning the closest version found: a no-op implementation
-2023-05-29 04:48:45.699  INFO 68722 --- [    Test worker] o.o.selenium.devtools.CdpVersionFinder   : Unable to find CDP implementation matching 113.
-2023-05-29 04:48:45.699  WARN 68722 --- [    Test worker] o.o.selenium.chromium.ChromiumDriver     : Unable to find version of CDP to use for . You may need to include a dependency on a specific version of the CDP using something similar to `org.seleniumhq.selenium:selenium-devtools-v86:4.1.4` where the version (&quot;v86&quot;) matches the version of the chromium-based browser you're using and the version number of the artifact is the same as Selenium's.
-2023-05-29 04:48:48.764  INFO 68722 --- [    Test worker] m.l.j.p.e.moim.festa.RootElementParser   : 비용 파싱 = 무료
-2023-05-29 04:48:48.778  INFO 68722 --- [    Test worker] m.l.j.p.e.moim.festa.RootElementParser   : 주최기관 파싱 = 직장인상담코칭
-2023-05-29 04:48:48.795  INFO 68722 --- [    Test worker] m.l.j.p.e.moim.festa.RootElementParser   : 썸네일 파싱 = https://cf.festa.io/img/2022-12-31/9db969a2-14f4-444e-96dd-87db64d46867.PNG
-2023-05-29 04:48:48.805  INFO 68722 --- [    Test worker] m.l.j.p.e.moim.festa.RootElementParser   : 기간 파싱 = 2023년 12월 31일 (일) 오후 04:00 - 오후 05:00
-2023-05-29 04:48:48.814  INFO 68722 --- [    Test worker] m.l.j.p.e.moim.festa.RootElementParser   : 장소 파싱 = at 서울 강남구
-2023-05-29 04:48:48.823  INFO 68722 --- [    Test worker] m.l.j.p.e.moim.festa.RootElementParser   : 제목 파싱 = [무료상담] 직장인 고민상담 코칭
+<pre>2023-05-30 01:09:54.547  INFO 89936 --- [ null to remote] o.o.selenium.remote.ProtocolHandshake    : Detected dialect: W3C
+2023-05-30 01:09:54.560  WARN 89936 --- [    Test worker] o.o.selenium.devtools.CdpVersionFinder   : Unable to find an exact match for CDP version 113, so returning the closest version found: a no-op implementation
+2023-05-30 01:09:54.560  INFO 89936 --- [    Test worker] o.o.selenium.devtools.CdpVersionFinder   : Unable to find CDP implementation matching 113.
+2023-05-30 01:09:54.560  WARN 89936 --- [    Test worker] o.o.selenium.chromium.ChromiumDriver     : Unable to find version of CDP to use for . You may need to include a dependency on a specific version of the CDP using something similar to `org.seleniumhq.selenium:selenium-devtools-v86:4.1.4` where the version (&quot;v86&quot;) matches the version of the chromium-based browser you're using and the version number of the artifact is the same as Selenium's.
+2023-05-30 01:09:57.463  INFO 89936 --- [    Test worker] m.l.j.p.e.moim.festa.RootElementParser   : 비용 파싱 = 무료
+2023-05-30 01:09:57.472  INFO 89936 --- [    Test worker] m.l.j.p.e.moim.festa.RootElementParser   : 주최기관 파싱 = 직장인상담코칭
+2023-05-30 01:09:57.490  INFO 89936 --- [    Test worker] m.l.j.p.e.moim.festa.RootElementParser   : 썸네일 파싱 = https://cf.festa.io/img/2022-12-31/9db969a2-14f4-444e-96dd-87db64d46867.PNG
+2023-05-30 01:09:57.500  INFO 89936 --- [    Test worker] m.l.j.p.e.moim.festa.RootElementParser   : 기간 파싱 = 2023년 12월 31일 (일) 오후 04:00 - 오후 05:00
+2023-05-30 01:09:57.508  INFO 89936 --- [    Test worker] m.l.j.p.e.moim.festa.RootElementParser   : 장소 파싱 = at 서울 강남구
+2023-05-30 01:09:57.515  INFO 89936 --- [    Test worker] m.l.j.p.e.moim.festa.RootElementParser   : 제목 파싱 = [무료상담] 직장인 고민상담 코칭
 </pre>
 </span>
 </div>
 <div id="tab2" class="tab">
 <h2>Standard error</h2>
 <span class="code">
-<pre>Starting ChromeDriver 113.0.5672.63 (0e1a4471d5ae5bf128b1bd8f4d627c8cbd55f70c-refs/branch-heads/5672@{#912}) on port 49582
+<pre>Starting ChromeDriver 113.0.5672.63 (0e1a4471d5ae5bf128b1bd8f4d627c8cbd55f70c-refs/branch-heads/5672@{#912}) on port 52589
 Only local connections are allowed.
 Please see https://chromedriver.chromium.org/security-considerations for suggestions on keeping ChromeDriver safe.
 ChromeDriver was started successfully.
@@ -146,7 +146,7 @@ ChromeDriver was started successfully.
 <input id="line-wrapping-toggle" type="checkbox" autocomplete="off"/>
 </label>
 </div>Generated by 
-<a href="http://www.gradle.org">Gradle 7.6.1</a> at 2023. 5. 29. 오전 4:49:04</p>
+<a href="http://www.gradle.org">Gradle 7.6.1</a> at 2023. 5. 30. 오전 1:09:58</p>
 </div>
 </div>
 </body>

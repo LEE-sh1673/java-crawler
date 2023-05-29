@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<testsuite name="me.lsh.javacrawler.domain.event.competition.AwardScaleTest" tests="3" skipped="0" failures="0" errors="0" timestamp="2023-05-28T19:48:58" hostname="iseunghun-ui-MacBookPro.local" time="0.001">
+<testsuite name="me.lsh.javacrawler.domain.event.competition.AwardScaleTest" tests="3" skipped="0" failures="0" errors="0" timestamp="2023-05-29T16:09:46" hostname="iseunghun-ui-MacBookPro.local" time="0.001">
   <properties/>
   <testcase name="시상규모_5천이상()" classname="me.lsh.javacrawler.domain.event.competition.AwardScaleTest" time="0.0"/>
   <testcase name="시상규모_1천만미만()" classname="me.lsh.javacrawler.domain.event.competition.AwardScaleTest" time="0.0"/>

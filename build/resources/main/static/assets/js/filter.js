@@ -6,7 +6,7 @@ const radioButtons = filterForm.querySelectorAll("input[type=radio]");
 const filterClose = document.querySelector("#filter-close");
 
 const skillForm = document.querySelector("#skill-form");
-const userSkillSelectBox = skillForm.querySelector("input[type=checkbox]");
+const userSkillSelectBox = skillForm?.querySelector("input[type=checkbox]");
 
 if (skillForm != null) {
   skillForm.addEventListener("submit", (e) => {

@@ -37,7 +37,7 @@
 
   --red: #dc3545;
   --orange: #fd7e14;
-  --yellow: #ffc107;
+  --yellow: rgb(255, 193, 7);
   --green: #28a745;
   --blue: #007bff;
   --indigo: #6610f2;
@@ -1912,6 +1912,7 @@ section {
 /*  box-shadow: 0px 2px 20px rgba(0, 0, 0, 0.06);*/
 /*}*/
 
+#recommend .post-img img,
 .recent-blog-posts .post-item .post-img img {
   transition: 0.5s;
   max-height: 400px;
@@ -1920,6 +1921,7 @@ section {
   border-radius: 8px;
 }
 
+#recommend .post-img,
 .recent-blog-posts .post-item .post-img {
   height: 0;
   overflow: hidden;
@@ -1963,6 +1965,7 @@ section {
   transform: translate(-50%, -50%);
 }
 
+#recommend .post-img__wrapper,
 .recent-blog-posts .post-item .post-img__wrapper {
   display: grid;
   height: 100%;
@@ -1972,6 +1975,7 @@ section {
   position: absolute;
 }
 
+#recommend .post-img__item,
 .recent-blog-posts .post-item .post-img__item {
   position: relative;
   overflow: hidden;
@@ -2099,6 +2103,7 @@ section {
   padding: 0 .25rem;
 }
 
+#recommend .post-bookmark,
 .recent-blog-posts .post-item .post-bookmark {
   position: absolute;
   right: 4px;
@@ -2116,6 +2121,7 @@ section {
   padding: 16px 0px;
 }
 
+#recommend .post-title,
 .recent-blog-posts .post-item .post-title {
   font-size: 1.0625rem;
   color: var(--blue-600);
@@ -2124,9 +2130,65 @@ section {
   line-height: 1.5;
 }
 
+.recommend__title,
 .profile__title {
   font-weight: 600;
   color: var(--blue-600);
+}
+
+.recommend__title {
+  font-size: 2rem;
+}
+
+.recommend__meta-content {
+  font-size: 1.125rem;
+}
+
+.recommend__container {
+  font-size: 1.0625rem;
+  word-break: keep-all;
+}
+
+.recommend__highlight {
+  font-weight: bold;
+  font-size: 1.125rem;
+  color: var(--blue-600);
+  position: relative;
+}
+
+.recommend__skill {
+  border: 1px solid var(--blue);
+  background: var(--white);
+  padding: 4px 12px;
+  font-weight: 500;
+  border-radius: 1.25rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: var(--blue);
+  font-size: 1rem;
+  box-shadow: 2px 2px 0px var(--blue);
+}
+
+.recommend__highlight.username {
+  color: var(--blue);
+}
+
+.recommend__highlight .highlight__title {
+  position: relative;
+  font-size: 1.25rem;
+  z-index: 2;
+}
+
+.recommend__highlight .underline {
+  position: absolute;
+  left: 0;
+  bottom: 0;
+  width: 100%;
+  height: 8px;
+  background: var(--yellow);
+  opacity: 0.5;
+  z-index: 0;
 }
 
 .profile__background {
@@ -2229,12 +2291,14 @@ section {
   text-overflow: ellipsis;
 }
 
+.post-organizer,
 .recent-blog-posts .post-item .meta .post-organizer {
   color: var(--blue-500);
   font-weight: 500;
   margin-bottom: 0.5rem;
 }
 
+#recommend .meta,
 .recent-blog-posts .post-item .meta {
   font-size: 0.875rem;
   color: var(--blue-500);
@@ -2659,6 +2723,10 @@ section {
   color: #FBFBFD;
 }
 
+#recommend__header span {
+  font-size: 1.315rem;
+}
+
 .profile__recommend h3 {
   font-weight: 600;
   font-size: 2rem;
@@ -2668,6 +2736,10 @@ section {
   color: #FFFFFF;
 }
 
+#recommend__header h3 {
+  font-size: 2.25rem;
+}
+
 .profile__recommend-btn {
   display: flex;
   flex-direction: row;
@@ -2675,6 +2747,11 @@ section {
   align-items: center;
   padding: 4px 0px;
   gap: 10px;
+}
+
+.recommend__description {
+  font-size: 1.125rem;
+  font-weight: 500;
 }
 
 .profile__recommend-btn span {

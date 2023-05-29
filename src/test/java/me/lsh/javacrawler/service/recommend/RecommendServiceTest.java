@@ -1,7 +1,6 @@
 package me.lsh.javacrawler.service.recommend;
 
 import me.lsh.javacrawler.repository.recommend.dto.RecommendCompetitionDtoProtection;
-import me.lsh.javacrawler.repository.recommend.dto.RecommendSkillCompetitionDtoProtection;
 import org.junit.jupiter.api.Test;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.context.SpringBootTest;
@@ -29,7 +28,6 @@ class RecommendServiceTest {
             System.out.println("getEventId = " + competition.getEventId());
             System.out.println("getAwardAmount = " + competition.getAwardAmount());
             System.out.println("getAwardScale = " + competition.getAwardScale());
-            System.out.println("getAwardBenefit = " + competition.getAwardBenefit());
         }
     }
 
@@ -37,13 +35,13 @@ class RecommendServiceTest {
     void 사용자_관심_기술_공모전_추천() {
         // given
         long memberId = 1L;
-        Page<RecommendSkillCompetitionDtoProtection> competitions
+        Page<RecommendCompetitionDtoProtection> competitions
             = recommendService.recommendCompetitionsBySkill(memberId, PageRequest.of(0, 5));
 
         System.out.println("competitions.getTotalElements() = " + competitions.getTotalElements());
         System.out.println("competitions.getTotalPages() = " + competitions.getTotalPages());
 
-        for (RecommendSkillCompetitionDtoProtection competition : competitions) {
+        for (RecommendCompetitionDtoProtection competition : competitions) {
             System.out.println("getTitle = " + competition.getTitle());
         }
     }
