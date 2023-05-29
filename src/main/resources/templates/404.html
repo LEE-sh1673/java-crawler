@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="ko" xmlns:th="http://www.thymeleaf.org">
+<head th:replace="fragments/header :: header">
+  <title>모임</title>
+  <meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/>
+</head>
+<body class="moims">
+
+<header th:replace="fragments/bodyHeader :: bodyHeader"/>
+
+<main id="main">
+  <div class="d-flex align-items-center justify-content-center vh-100 p-5" data-aos="fade-up">
+    <div class ="col-md-5">
+      <img class="img-fluid lazy"
+           data-src="/assets/img/404.png">
+    </div>
+    <div class="p-5">
+      <h2 class="display-5 fw-bold">해당 페이지를 찾지 못했습니다.</h2>
+      <p class="lead h2 mb-4 mt-4">
+        주소가 잘못되었거나 더 이상 제공되지 않는 페이지입니다.
+      </p>
+      <a href="/" class="text-primary fw-bold h5">메인페이지로 이동 🏠🏃🏻‍♀</a>
+    </div>
+  </div>
+</main>
+
+<a href="#" class="scroll-top d-flex align-items-center justify-content-center"><i
+    class="bi bi-arrow-up-short"></i></a>
+<div id="preloader"></div>
+</body>
+
+<!-- Vendor JS Files -->
+<script src="/assets/vendor/aos/aos.js"></script>
+<script src="/assets/vendor/isotope-layout/isotope.pkgd.min.js"></script>
+<script src="/assets/vendor/swiper/swiper-bundle.min.js"></script>
+<script src="/assets/vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
+<script src="/assets/vendor/glightbox/js/glightbox.min.js"></script>
+<script src="/assets/vendor/purecounter/purecounter_vanilla.js"></script>
+
+<!-- Template Main JS File -->
+<script src="/assets/js/main.js"></script>
+<script src="/assets/js/filter.js"></script>
+<script src="/assets/js/lazyloading.js"></script>
+<script src="/assets/js/profile.js"></script>
+</html>

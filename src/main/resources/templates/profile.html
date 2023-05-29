@@ -1,0 +1,396 @@
+<!DOCTYPE html>
+<html lang="ko" xmlns:th="http://www.thymeleaf.org">
+<head th:replace="fragments/header :: header">
+  <title th:title="${member.name}"></title>
+  <meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/>
+</head>
+<body class="competitions" id="competitions__page">
+<header th:replace="fragments/bodyHeader :: bodyHeader"/>
+<main id="main">
+  <section id="competition" class="container">
+    <div class="col-md-8 mx-auto">
+      <div class="post-item position-relative h-100 profile__content">
+        <div class="position-relative d-flex flex-column gap-4">
+          <div
+              class="profile__background profile__container d-flex align-items-start flex-column justify-content-between mb-2 gap-4">
+            <img th:data-src="${member.picture}" class="rounded-circle shadow-lg lazy"
+                 style="width: 120px;" alt="Avatar"/>
+            <div class="d-flex flex-column gap-2">
+              <h2 class="profile__name" th:text="${member.name}"></h2>
+              <div class="d-flex align-content-start">
+                <i class="bi bi-envelope opacity-75 competition__meta"></i>
+                <div class="d-flex align-items-center ps-2">
+                  <div class="competition__meta text-overflow__ellipsis"
+                       th:text="${member.email}"></div>
+                </div>
+              </div>
+              <div class="d-flex align-content-start">
+                <i class="bi bi-person opacity-75 competition__meta"></i>
+                <div class="d-flex align-items-center ps-2">
+                  <div class="competition__meta text-overflow__ellipsis"
+                       th:text="${member.job.name}"></div>
+                </div>
+              </div>
+              <!--              <div class="d-flex align-content-start">-->
+              <!--                <i class="bi bi-calendar-date opacity-75 text-secondary"></i>-->
+              <!--                <div class="d-flex align-items-center ps-2">-->
+              <!--                  <div class="text-secondary text-overflow__ellipsis"-->
+              <!--                       th:text="${member.getJoinedDate() + '에 가입함.'}"></div>-->
+              <!--                </div>-->
+              <!--              </div>-->
+            </div>
+          </div>
+          <div
+              th:with="hasBookmark = ${competitions.totalElements + moims.totalElements <= 10}">
+            <div
+                th:unless="${hasBookmark}"
+                class="profile__container profile__recommend profile__meta d-flex gap-5">
+              <div class="profile__recommend__wrapper">
+                <div class="profile__recommend-title">
+                  <span>더 편리하고 똑똑하게___</span>
+                  <h3>당신을 위해 준비한 공고를 확인해보세요.</h3>
+                </div>
+                <div class="profile__recommend-btn">
+                  <a th:href="@{/recommends}" class="d-flex gap-1">
+                    <span>확인하러 가기</span>
+                    <i class="bi bi-arrow-right"></i>
+                  </a>
+                </div>
+              </div>
+            </div>
+            <div th:if="${hasBookmark}" class="profile__container profile__meta">
+              <span class="competition__meta opacity-75">
+                마음에 드는 공고를 북마크 해보세요. 더 편리한 기능을 제공해드릴게요 :)
+              </span>
+            </div>
+          </div>
+          <div class="profile__container profile__meta d-flex gap-5">
+            <div class="d-flex align-content-start flex-column mb-2 gap-4 w-100">
+              <div class="d-flex align-content-start justify-content-between">
+                <h4 class="profile__title">관심 기술</h4>
+                <div>
+                  <span id="user__skills__search">
+                    <i class="bi bi-search"></i>
+                  </span>
+
+                  <div id="user__skills__form" class="d-none">
+                    <form
+                        th:action="@{/profile/skills}"
+                        th:object="${skillSearch}"
+                        method="post"
+                        class="profile__container filter-control__content d-flex flex-column justify-content-between align-content-center gap-3">
+                      <div class="d-flex flex-column gap-3 align-items-start">
+                        <div class="d-flex justify-content-between align-items-center w-100">
+                          <h4>관심 기술을 선택해주세요.</h4>
+                          <div class="d-flex gap-2">
+                            <button id="user__skills__update-btn" class="btn btn-primary"
+                                    type="submit">저장
+                            </button>
+                            <span id="user__skills__close-btn" class="btn btn-secondary">취소
+                            </span>
+                          </div>
+                        </div>
+                        <button class="btn dropdown-toggle collapsed" type="button"
+                                data-bs-toggle="collapse" data-bs-target="#dropdownSkillMenu"
+                                aria-expanded="false" aria-controls="dropdownSkillMenu">
+                          <b>기술 목록</b>
+                        </button>
+                        <div class="collapse form-group" id="dropdownSkillMenu">
+                          <div class="form-check" th:each="skill, skillStat : ${skills}"
+                               th:with="exist = ${#sets.contains(member.skills, skill.value)}">
+
+                            <div th:if="${exist} and not ${skillStat.last}" class="pb-2">
+                              <input class="form-check-input"
+                                     type="checkbox"
+                                     th:name="skills"
+                                     th:value="${skill.value}"
+                                     checked/>
+                              <label class="form-check-label text-secondary"
+                                     th:text="${skill.value.name}"/>
+                              <input type="hidden" th:name="_skills" value="on"/>
+                            </div>
+
+                            <div th:unless="${exist}" class="pb-2">
+                              <input class="form-check-input"
+                                     type="checkbox" th:field="*{skills}"
+                                     th:value="${skill.value}"/>
+
+                              <label class="form-check-label text-secondary"
+                                     th:for="${#ids.prev('skills')}"
+                                     th:text="${skill.value.name}"/>
+                            </div>
+                          </div>
+                        </div>
+                      </div>
+                    </form>
+                  </div>
+                </div>
+              </div>
+              <div class="d-flex align-content-start">
+                <div class="d-flex align-items-center flex-wrap gap-2"
+                     th:with="noSkill=${member.hasNoSkill()}">
+
+                  <span class="opacity-75"
+                        th:each="skill, skillStat: ${member.skills}"
+                        th:with="noSkill=${member.skills.contains(skill.NO_SKILL)}">
+
+                        <span th:unless="${noSkill}"
+                              class="user__skill"
+                              th:text="${skill.name}">
+                        </span>
+                       <span th:if="${noSkill}" class="text-secondary">
+                            등록된 기술이 없어요:( 지금 기술을 등록하고 더 다양한 서비스를 누리세요!
+                      </span>
+                  </span>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="profile__container profile__meta d-flex gap-5">
+            <div class="d-flex align-content-start flex-column mb-2 gap-4 w-100">
+              <div class="d-flex align-content-start">
+                <h4 class="profile__title">북마크된 공모전</h4>
+              </div>
+              <div class="d-flex align-content-start">
+                <div class="d-flex flex-column gap-1 w-100"
+                     th:with="bookmarks=${competitions.totalElements eq 0}">
+
+                  <div th:if="${bookmarks}">
+                    <span class="text-secondary opacity-75">북마크된 공고가 없습니다.</span>
+                  </div>
+
+                  <div th:unless="${bookmarks}"
+                       th:each="bookmark : ${competitions}"
+                       th:object="${bookmark.event}"
+                       class="border-bottom w-100 pb-3 pt-3">
+                    <div class="d-flex w-100 gap-2">
+                      <div class="w-25 h-50">
+                        <img class="img-fluid lazy w-75 bookmark__thumbnail"
+                             th:data-src="*{thumbnail}">
+                      </div>
+                      <div class="w-100">
+                        <div
+                            class="d-flex align-items-center justify-content-between gap-4 w-100">
+                          <a th:href="@{/competitions/{id}(id=*{id})}">
+                            <h5 class="bookmark__title" th:text="*{title}"></h5>
+                          </a>
+                          <button class="btn bookmark__close">
+                            <input type="hidden" th:value="${bookmark.id}">
+                            <i class="bi bi-x text-secondary opacity-75"></i>
+                          </button>
+                        </div>
+                        <div class="d-flex align-items-center mb-2 gap-2">
+                          <div class="d-flex align-items-start competition__date"
+                               th:with="dDay=*{calculateDDay()}">
+                            <span th:if="${dDay < 0}" class="mb-0 post-date__expired">마감됨</span>
+                            <span th:if="${dDay >= 0}" class="mb-0 bookmark__date"
+                                  th:classappend="${dDay} == 0 ? 'post-date__due_today' : ''"
+                                  th:text="${dDay} == 0 ? '오늘마감' : 'D-' + ${dDay}">
+                              </span>
+                          </div>
+                          <div
+                              class="bookmark__organizer d-flex align-items-start text-secondary opacity-75 w-75">
+                            <i class="bi bi-building"></i>
+                            <div class="d-flex align-items-center ps-2 w-75">
+                              <div class="text-overflow__ellipsis"
+                                   data-toggle="tooltip"
+                                   data-placement="top"
+                                   th:text="*{organizer}"></div>
+                            </div>
+                          </div>
+                        </div>
+                        <div class="d-flex align-items-start gap-3 bookmark__meta">
+                          <div class="d-flex align-items-start text-secondary opacity-75">
+                            <i class="bi bi-bookmark"></i>
+                            <span class="ps-2" th:text="*{bookmarkCount}"></span>
+                          </div>
+                          <div class="d-flex align-items-start text-secondary opacity-75">
+                            <i class="bi bi-eye"></i>
+                            <span class="ps-2" th:text="*{viewCount}"></span>
+                          </div>
+                          <div class="d-flex align-items-start text-secondary opacity-75">
+                            <div class="mb-2 d-flex align-content-start post-skills"
+                                 th:if="*{skills}">
+                              <div class="d-flex align-content-center">
+                                <span th:each="skill, skillStat : *{skills}"
+                                      th:unless="${skill.isNoSkill()}">
+                                    <a class="bookmark__skill"
+                                       th:href="@{/competitions(skills=${skill})}">
+                                      <span th:text="${skill.name}"></span>
+                                    </a>
+                                </span>
+                              </div>
+                            </div>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+
+              <div th:if="${!competitions.isEmpty()}">
+                <ul class="pagination justify-content-center">
+                  <li class="page-item" th:classappend="${!competitions.hasPrevious} ? 'disabled'">
+                    <a class="page-link" id="page-prev"
+                       th:href="@{|?competition_page=${competitions.number - 1}&moim_page=${moims.number}|}">
+                      <span>이전</span>
+                    </a>
+                  </li>
+                  <li th:each="competition_page: ${#numbers.sequence(0, competitions.totalPages -1)}"
+                      th:classappend="${competition_page == competitions.number} ? 'active'"
+                      class="page-item">
+                    <a th:text="${competition_page + 1}" class="page-link page-number"
+                       th:href="@{|?competition_page=${competition_page}&moim_page=${moims.number}|}"></a>
+                  </li>
+                  <li class="page-item" th:classappend="${!competitions.hasNext} ? 'disabled'">
+                    <a class="page-link" id="page-next"
+                       th:href="@{|?competition_page=${competitions.number + 1}&moim_page=${moims.number}|}">
+                      <span>다음</span>
+                    </a>
+                  </li>
+                </ul>
+              </div>
+
+
+            </div>
+          </div>
+
+          <div class="profile__container profile__meta d-flex gap-5">
+            <div class="d-flex align-content-start flex-column mb-2 gap-4 w-100">
+              <div class="d-flex align-content-start">
+                <h4 class="profile__title">북마크된 모임</h4>
+              </div>
+              <div class="d-flex align-content-start">
+                <div class="d-flex flex-column gap-1 w-100"
+                     th:with="bookmarks=${moims.totalElements eq 0}">
+
+                  <div th:if="${bookmarks}">
+                    <span class="text-secondary opacity-75">북마크된 공고가 없습니다.</span>
+                  </div>
+
+                  <div th:unless="${bookmarks}"
+                       th:each="bookmark : ${moims}"
+                       th:object="${bookmark.event}"
+                       class="border-bottom w-100 pb-3 pt-3">
+                    <div>
+                      <div class="d-flex align-items-center justify-content-between gap-4">
+                        <a th:href="@{/moims/{id}(id=*{id})}">
+                          <h5 class="bookmark__title" th:text="*{title}"></h5>
+                        </a>
+                        <button class="btn bookmark__close">
+                          <input type="hidden" th:value="${bookmark.id}">
+                          <i class="bi bi-x text-secondary opacity-75"></i>
+                        </button>
+                      </div>
+                      <div class="d-flex align-items-center mb-2 gap-2">
+                        <div class="d-flex align-items-start competition__date"
+                             th:with="dDay=*{calculateDDay()}">
+                          <span th:if="${dDay < 0}" class="mb-0 post-date__expired">마감됨</span>
+                          <span th:if="${dDay >= 0}" class="mb-0 bookmark__date"
+                                th:classappend="${dDay} == 0 ? 'post-date__due_today' : ''"
+                                th:text="${dDay} == 0 ? '오늘마감' : 'D-' + ${dDay}">
+                            </span>
+                        </div>
+                        <div
+                            class="bookmark__organizer d-flex align-items-start text-secondary opacity-75 w-75">
+                          <i class="bi bi-building"></i>
+                          <div class="d-flex align-items-center ps-2 w-75">
+                            <div class="text-overflow__ellipsis"
+                                 data-toggle="tooltip"
+                                 data-placement="top"
+                                 th:text="*{organizer}"></div>
+                          </div>
+                        </div>
+                      </div>
+                      <div class="d-flex align-items-start gap-3 bookmark__meta">
+                        <div class="d-flex align-items-start text-secondary opacity-75">
+                          <i class="bi bi-bookmark"></i>
+                          <span class="ps-2" th:text="*{bookmarkCount}"></span>
+                        </div>
+                        <div class="d-flex align-items-start text-secondary opacity-75">
+                          <i class="bi bi-eye"></i>
+                          <span class="ps-2" th:text="*{viewCount}"></span>
+                        </div>
+                        <div class="d-flex align-items-start text-secondary opacity-75">
+                          <div class="mb-2 d-flex align-content-start post-skills"
+                               th:if="*{skills}">
+                            <div class="d-flex align-content-center">
+                                <span th:each="skill, skillStat : *{skills}"
+                                      th:unless="${skill.isNoSkill()}">
+                                    <a class="bookmark__skill" th:href="@{/moims(skills=${skill})}">
+                                      <span th:text="${skill.name}"></span>
+                                    </a>
+                                </span>
+                            </div>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+
+              <div th:if="${!moims.isEmpty()}">
+                <ul class="pagination justify-content-center">
+
+                  <li class="page-item" th:classappend="${!moims.hasPrevious} ? 'disabled'">
+                    <a class="page-link" id="moimsPage-prev"
+                       th:href="@{|?competition_page=${competitions.number}&moim_page=${moims.number - 1}|}">
+                      <span>이전</span>
+                    </a>
+                  </li>
+
+                  <li th:each="moim_Page: ${#numbers.sequence(0, moims.totalPages -1)}"
+                      th:classappend="${moim_Page == moims.number} ? 'active'" class="page-item">
+                    <a th:text="${moim_Page + 1}" class="page-link page-number"
+                       th:href="@{|?competition_page=${competitions.number}&moim_page=${moim_Page}|}"></a>
+                  </li>
+
+                  <li class="page-item" th:classappend="${!moims.hasNext} ? 'disabled'">
+                    <a class="page-link" id="moimsPage-prev-next"
+                       th:href="@{|?competition_page=${competitions.number}&moim_page=${moims.number + 1}|}">
+                      <span>다음</span>
+                    </a>
+                  </li>
+                </ul>
+              </div>
+
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    </div>
+  </section>
+</main>
+
+<a href="#" class="scroll-top d-flex align-items-center justify-content-center"><i
+    class="bi bi-arrow-up-short"></i></a>
+
+<div id="preloader"></div>
+
+<!-- Vendor JS Files -->
+<script src="/assets/vendor/aos/aos.js"></script>
+<script src="/assets/vendor/isotope-layout/isotope.pkgd.min.js"></script>
+<script src="/assets/vendor/swiper/swiper-bundle.min.js"></script>
+<script src="/assets/vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
+<script src="/assets/vendor/glightbox/js/glightbox.min.js"></script>
+<script src="/assets/vendor/purecounter/purecounter_vanilla.js"></script>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.4/jquery.min.js"></script>
+
+<!-- Template Main JS File -->
+<script src="/assets/js/main.js"></script>
+<script src="/assets/js/lazyloading.js"></script>
+<script src="/assets/js/profile.js"></script>
+
+<script>
+  $(document).ready(function () {
+    $('[data-toggle="tooltip"]').tooltip();
+  });
+  document.addEventListener("DOMContentLoaded", () => {
+    document.querySelectorAll("img").forEach(img => img.classList.add("img-fluid"));
+  })
+</script>
+</body>
+</html>

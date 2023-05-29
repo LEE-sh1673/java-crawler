@@ -1,0 +1,161 @@
+<!DOCTYPE html>
+<html lang="ko" xmlns:th="http://www.thymeleaf.org">
+<head th:replace="fragments/header :: header">
+  <title>공모전</title>
+  <meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/>
+</head>
+<body class="competitions">
+
+<header th:replace="fragments/bodyHeader :: bodyHeader"/>
+
+<button class="btn" id="filter-close">
+  <i class="bi bi-list"></i>
+</button>
+
+<div class="filter-control pt-5 collapse">
+  <div>
+    <div class="d-flex justify-content-between pt-5 pb-2 align-items-center">
+      <span><b>공모전 검색</b></span>
+      <button onclick="clearForm()" class="btn btn-link p-0">reset</button>
+    </div>
+  </div>
+  <form id="filter-form" th:object="${searchOption}" th:action="@{/competitions/search}"
+        method="post"
+        class="filter-control__content form-check-inline d-flex flex-column justify-content-between align-content-center gap-3">
+
+    <input class="form-control" type="text" th:field="${searchOption.competitionName}"
+           placeholder="공모전 검색">
+    <div>
+      <div><b>일시</b></div>
+      <div class="form-check" th:each="dateOption : ${dateOptions}">
+        <input class="form-check-input" type="radio" th:field="*{dateOption}"
+               th:value="${dateOption}"/>
+        <label class="form-check-label" th:for="${#ids.prev('dateOption')}"
+               th:text="${dateOption.label}"/>
+      </div>
+    </div>
+    <div>
+      <div><b>응모 대상</b></div>
+      <div class="form-check" th:each="applicantType : ${applicantTypes}">
+        <input class="form-check-input" type="checkbox" th:field="*{applicantTypes}"
+               th:value="${applicantType.value}"/>
+        <label class="form-check-label" th:for="${#ids.prev('applicantTypes')}"
+               th:text="${applicantType.value.name}"/>
+      </div>
+    </div>
+
+    <div>
+      <div><b>시상 규모</b></div>
+      <div class="form-check" th:each="awardScale : ${awardScales}">
+        <input class="form-check-input" type="radio" th:field="*{awardScale}"
+               th:value="${awardScale.value}"/>
+        <label class="form-check-label" th:for="${#ids.prev('awardScale')}"
+               th:text="${awardScale.value.name}"/>
+      </div>
+    </div>
+    <div>
+      <div><b>시상 혜택</b></div>
+      <div class="form-check" th:each="awardBenefit : ${awardBenefits}">
+        <input class="form-check-input" type="checkbox" th:field="*{awardBenefits}"
+               th:value="${awardBenefit.value}"/>
+        <label class="form-check-label" th:for="${#ids.prev('awardBenefits')}"
+               th:text="${awardBenefit.value.name}"/>
+      </div>
+    </div>
+    <button class="btn btn-primary" type="submit">Search</button>
+  </form>
+</div>
+
+<main id="main">
+  <section id="recent-blog-posts" class="recent-blog-posts">
+    <div class="container col-lg-8">
+      <div class="section-header pt-5 mt-5">
+        <h4 class="text-lg-start">
+          총 <span class="text-primary" th:text="${paging.totalElements}"></span> 건이 검색되었습니다.
+        </h4>
+      </div>
+      <div class="row gy-5">
+        <a th:each="competition : ${paging}" class="col-md-3"
+           data-aos-delay="100" th:href="@{/competitions/{id}(id=${competition.id})}">
+          <div>
+            <div class="post-item position-relative h-100">
+              <div class="post-img position-relative overflow-hidden">
+                <div class="post-img__wrapper">
+                  <div class="post-img__item">
+                    <img class = "lazy img-fluid" th:data-src="${competition.thumbnail}" alt="">
+                    <span class="post-bookmark">
+                          <i class="bi bi-bookmark"></i>
+                          <span th:text="${competition.bookmarkCount}">0</span>
+                        </span>
+                  </div>
+                </div>
+              </div>
+              <div class="post-content d-flex flex-column">
+                <h3 class="post-title title-overflow__ellipsis" th:text="${competition.title}"></h3>
+                <div class="meta d-flex align-items-center">
+                  <div class="d-flex align-items-center">
+                    <span class="post-organizer text-overflow__ellipsis"
+                          th:text="${competition.organizer}"></span>
+                  </div>
+                </div>
+                <div class="meta d-flex align-content-center justify-content-md-start">
+                  <span class="ps-2 post-date"
+                        th:text="'D-' + ${competition.DDay}"></span>
+                  <span class="px-2"></span>
+                  <div class="d-flex align-items-center">
+                    <i class="bi bi-eye"></i><span class="ps-2"
+                                                   th:text="${competition.viewCount}"></span>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </a><!-- End post item -->
+      </div>
+
+      <!-- 페이징처리 시작 -->
+      <div th:if="${!paging.isEmpty()}">
+        <ul class="pagination justify-content-center">
+          <li class="page-item" th:classappend="${!paging.hasPrevious} ? 'disabled'">
+            <a class="page-link"
+               th:href="@{|?page=${paging.number - 1}|}">
+              <span>이전</span>
+            </a>
+          </li>
+          <li th:each="page: ${#numbers.sequence(0, paging.totalPages -1)}"
+              th:classappend="${page == paging.number} ? 'active'" class="page-item">
+            <a th:text="${page + 1}" class="page-link" th:href="@{|?page=${page}|}"></a>
+          </li>
+          <li class="page-item" th:classappend="${!paging.hasNext} ? 'disabled'">
+            <a class="page-link"
+               th:href="@{|?page=${paging.number + 1}|}">
+              <span>다음</span>
+            </a>
+          </li>
+        </ul>
+      </div>
+    </div>
+
+    </div>
+  </section>
+</main>
+
+<a href="#" class="scroll-top d-flex align-items-center justify-content-center"><i
+    class="bi bi-arrow-up-short"></i></a>
+
+<div id="preloader"></div>
+
+<!-- Vendor JS Files -->
+<script src="/assets/vendor/aos/aos.js"></script>
+<script src="/assets/vendor/isotope-layout/isotope.pkgd.min.js"></script>
+<script src="/assets/vendor/swiper/swiper-bundle.min.js"></script>
+<script src="/assets/vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
+<script src="/assets/vendor/glightbox/js/glightbox.min.js"></script>
+<script src="/assets/vendor/purecounter/purecounter_vanilla.js"></script>
+
+<!-- Template Main JS File -->
+<script src="/assets/js/main.js"></script>
+<script src="/assets/js/filter.js"></script>
+
+</body>
+</html>
