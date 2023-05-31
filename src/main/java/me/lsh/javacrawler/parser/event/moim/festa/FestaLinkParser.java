@@ -6,6 +6,7 @@ import java.time.format.DateTimeParseException;
 import java.util.Set;
 import java.util.stream.Collectors;
 import me.lsh.javacrawler.parser.event.MoimLinkParser;
+import me.lsh.javacrawler.parser.event.exception.WebCrawlerParsingException;
 import org.jsoup.nodes.Document;
 import org.jsoup.nodes.Element;
 import org.springframework.stereotype.Component;
@@ -21,11 +22,26 @@ public class FestaLinkParser implements MoimLinkParser {
 
     @Override
     public Set<Integer> parseLinks(final Document document) {
-        return document.select(LIST_ROOT_SELECTOR)
-            .stream()
-            .filter(this::isNotExpired)
-            .map(this::parsePageLink)
-            .collect(Collectors.toSet());
+        Set<Integer> links = parseLinksFrom(document);
+
+        if (links.size() == 0) {
+            throw new WebCrawlerParsingException(
+                "Can not parse page links.",
+                FestaLinkParser.class, new IndexOutOfBoundsException("no page link parsed."));
+        }
+        return links;
+    }
+
+    private Set<Integer> parseLinksFrom(final Document document) {
+        try {
+            return document.select(LIST_ROOT_SELECTOR)
+                .stream()
+                .filter(this::isNotExpired)
+                .map(this::parsePageLink)
+                .collect(Collectors.toSet());
+        } catch (Exception e) {
+            throw new WebCrawlerParsingException("Can not parse page links.", FestaLinkParser.class, e);
+        }
     }
 
     private boolean isNotExpired(final Element element) {

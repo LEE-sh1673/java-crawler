@@ -68,7 +68,7 @@ public class RootElementParser {
         try {
             return LocalDateTime.parse(dateStr, DATE_TIME_FORMATTER);
         } catch (DateTimeParseException e) {
-            throw new IllegalStateException("Can not parse " + dateStr);
+            throw new IllegalStateException("Can not parse datetime. " + dateStr);
         }
     }
 
