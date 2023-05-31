@@ -6,6 +6,7 @@ import java.time.LocalDateTime;
 import java.time.format.DateTimeFormatter;
 import java.util.ArrayList;
 import java.util.List;
+import java.util.stream.Collectors;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.stereotype.Component;
 
@@ -16,7 +17,7 @@ public abstract class EventCrawlerReport {
     private static final DateTimeFormatter MESSAGE_TIMESTAMP_FORMAT
         = DateTimeFormatter.ofPattern("yyyy-MM-dd HH:mm:ss.SSS");
 
-    private static final String REPORT_PATH = "src/main/resources/reports/";
+    private static final String REPORT_PATH = "static/reports/";
 
     private final List<String> messages;
 
@@ -34,18 +35,30 @@ public abstract class EventCrawlerReport {
     }
 
     protected void saveToFile(final String fileName) {
-        String name = REPORT_PATH + fileName + ".txt";
+        String filePath = getFilePath(fileName);
+        writeToFile(getFilePath(fileName));
+        log.info("레포트를 저장하였습니다.  : {}", filePath);
+        messages.clear();
+    }
 
-        try (FileWriter writer = new FileWriter(name)) {
-            for (String message : messages) {
-                writer.write(message + System.lineSeparator());
-            }
-            log.info("레포트를 저장하였습니다.  : {}", name);
+    private String getFilePath(final String fileName) {
+        return REPORT_PATH
+            + fileName
+            + ".txt";
+    }
+
+    private void writeToFile(final String filePath) {
+        try (FileWriter fileWriter = new FileWriter(filePath)) {
+            fileWriter.write(getFileContent(messages));
         } catch (IOException e) {
-            log.error("레포트 저장에 실패하였습니다:  {}", e.getMessage());
-        } finally {
-            messages.clear();
+            throw new RuntimeException(e);
         }
+    }
+
+    private String getFileContent(List<String> messages) {
+        return messages.stream()
+            .map(message -> message + '\n')
+            .collect(Collectors.joining());
     }
 
     abstract public void save();

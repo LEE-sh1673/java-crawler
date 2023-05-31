@@ -20,7 +20,7 @@ public class FestaParser implements MoimParser {
 
     @Override
     public Set<Integer> parseLinks(final Document document) {
-        return linkParser.parseLinks(document);
+        return  linkParser.parseLinks(document);
     }
 
     @Override
@@ -28,7 +28,7 @@ public class FestaParser implements MoimParser {
         try {
             return contentParser.parse(url, document);
         } catch (Exception e) {
-            throw new WebCrawlerParsingException(e.getMessage(), url, contentParser.getClass());
+            throw new WebCrawlerParsingException(e.getMessage(), url, contentParser.getClass(), e);
         }
     }
 }

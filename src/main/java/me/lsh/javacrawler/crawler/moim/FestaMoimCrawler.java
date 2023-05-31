@@ -29,16 +29,15 @@ public class FestaMoimCrawler extends EventCrawler
 
     @Override
     public List<Integer> crawlLinks() {
-        List<Integer> links = parser.parseLinks(fetchDocument(BASE_URL))
-            .stream()
-            .sorted(Collections.reverseOrder())
-            .collect(Collectors.toList());
-
-        if (links.size() == 0) {
+        try {
+            return parser.parseLinks(fetchDocument(BASE_URL))
+                .stream()
+                .sorted(Collections.reverseOrder())
+                .collect(Collectors.toList());
+        } catch (WebCrawlerParsingException e) {
             throw new WebCrawlerParsingException("Can not parse page : " + BASE_URL,
-                this.parser.getClass());
+                this.parser.getClass(), e);
         }
-        return links;
     }
 
     @Override

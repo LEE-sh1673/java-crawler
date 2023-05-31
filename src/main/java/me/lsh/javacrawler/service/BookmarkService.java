@@ -2,6 +2,7 @@ package me.lsh.javacrawler.service;
 
 import java.util.Optional;
 import lombok.RequiredArgsConstructor;
+import lombok.extern.slf4j.Slf4j;
 import me.lsh.javacrawler.domain.event.BookmarkEvent;
 import me.lsh.javacrawler.domain.event.Event;
 import me.lsh.javacrawler.domain.member.Member;
@@ -11,9 +12,11 @@ import me.lsh.javacrawler.repository.member.MemberRepository;
 import me.lsh.javacrawler.service.dto.BookmarkRequestSaveDto;
 import org.springframework.data.domain.Page;
 import org.springframework.data.domain.Pageable;
+import org.springframework.scheduling.annotation.Scheduled;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
+@Slf4j
 @Service
 @Transactional(readOnly = true)
 @RequiredArgsConstructor
@@ -80,5 +83,18 @@ public class BookmarkService {
                 () -> new IllegalArgumentException("존재하지 않는 회원입니다." + memberId));
 
         return bookmarkRepository.existsByMemberAndEvent(member, event);
+    }
+
+    // 처음 실행 된 후 30초후 실행, 이후 이전에 실행된 task의 종료 시긴으로 부터 10분(600000) 후에 실행됨.
+    @Scheduled(fixedDelay = 600000, initialDelay = 30000)
+    @Transactional
+    public void deleteAll() {
+        for (Event event : eventRepository.findAll()) {
+            if (event.isExpired()) {
+                log.info("만료된 공고 삭제 -> {}", event.getTitle());
+                bookmarkRepository.deleteAllByEventId(event.getId());
+                eventRepository.delete(event);
+            }
+        }
     }
 }

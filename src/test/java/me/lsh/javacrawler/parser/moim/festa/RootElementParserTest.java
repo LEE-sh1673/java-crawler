@@ -4,13 +4,18 @@ import static org.junit.jupiter.api.Assertions.assertEquals;
 import static org.junit.jupiter.api.Assertions.assertFalse;
 
 import me.lsh.javacrawler.config.driver.DriverConfig;
+import me.lsh.javacrawler.crawler.TestCrawlerConfig;
 import me.lsh.javacrawler.parser.event.moim.festa.RootElementParser;
 import org.jsoup.Jsoup;
 import org.junit.jupiter.api.BeforeAll;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 import org.openqa.selenium.WebDriver;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.boot.test.context.SpringBootTest;
+import org.springframework.context.annotation.Import;
 
+@Import({TestCrawlerConfig.class})
 class RootElementParserTest {
 
     private static final String BASE_URL = "https://festa.io/events/3021";
@@ -19,10 +24,11 @@ class RootElementParserTest {
 
     private RootElementParser parser;
 
+
     @BeforeAll
     static void tearUp() throws InterruptedException {
-        DriverConfig driverConfig = new DriverConfig();
-        driver = driverConfig.chromeDriver();
+        TestCrawlerConfig driverConfig = new TestCrawlerConfig();
+        driver = driverConfig.testDriver();
         driver.get(BASE_URL);
         Thread.sleep(1000);
     }

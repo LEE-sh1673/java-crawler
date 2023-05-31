@@ -93,7 +93,7 @@ public class AttributeElementParser {
             LocalDate localDate = LocalDate.parse(dateStr, ofPattern("yy.M.d"));
             return localDate.atTime(localTime);
         } catch (DateTimeParseException e) {
-            throw new IllegalStateException("Can not parse " + dateStr);
+            throw new IllegalStateException("Can not parse datetime. " + dateStr);
         }
     }
 }

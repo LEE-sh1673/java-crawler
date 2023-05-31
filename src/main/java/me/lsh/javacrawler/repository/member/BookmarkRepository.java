@@ -1,5 +1,6 @@
 package me.lsh.javacrawler.repository.member;
 
+import java.util.List;
 import java.util.Optional;
 import me.lsh.javacrawler.domain.event.BookmarkEvent;
 import me.lsh.javacrawler.domain.event.Event;
@@ -7,12 +8,17 @@ import me.lsh.javacrawler.domain.member.Member;
 import org.springframework.data.domain.Page;
 import org.springframework.data.domain.Pageable;
 import org.springframework.data.jpa.repository.JpaRepository;
+import org.springframework.data.jpa.repository.Modifying;
 import org.springframework.data.jpa.repository.Query;
 import org.springframework.data.repository.query.Param;
 
 public interface BookmarkRepository extends JpaRepository<BookmarkEvent, Long> {
 
     Optional<BookmarkEvent> findByMemberAndEvent(Member member, Event event);
+
+    @Query("delete from BookmarkEvent h where h.event.id = :eventId")
+    @Modifying
+    void deleteAllByEventId(@Param("eventId") Long eventId);
 
     boolean existsByMemberAndEvent(final Member member, final Event event);
 

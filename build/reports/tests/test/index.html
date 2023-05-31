@@ -20,13 +20,13 @@
 <tr>
 <td>
 <div class="infoBox" id="tests">
-<div class="counter">27</div>
+<div class="counter">22</div>
 <p>tests</p>
 </div>
 </td>
 <td>
 <div class="infoBox" id="failures">
-<div class="counter">0</div>
+<div class="counter">7</div>
 <p>failures</p>
 </div>
 </td>
@@ -38,7 +38,7 @@
 </td>
 <td>
 <div class="infoBox" id="duration">
-<div class="counter">8.395s</div>
+<div class="counter">0.568s</div>
 <p>duration</p>
 </div>
 </td>
@@ -47,8 +47,8 @@
 </div>
 </td>
 <td>
-<div class="infoBox success" id="successRate">
-<div class="percent">100%</div>
+<div class="infoBox failures" id="successRate">
+<div class="percent">68%</div>
 <p>successful</p>
 </div>
 </td>
@@ -58,13 +58,49 @@
 <div id="tabs">
 <ul class="tabLinks">
 <li>
-<a href="#tab0">Packages</a>
+<a href="#tab0">Failed tests</a>
 </li>
 <li>
-<a href="#tab1">Classes</a>
+<a href="#tab1">Packages</a>
+</li>
+<li>
+<a href="#tab2">Classes</a>
 </li>
 </ul>
 <div id="tab0" class="tab">
+<h2>Failed tests</h2>
+<ul class="linkList">
+<li>
+<a href="classes/me.lsh.javacrawler.crawler.competition.CompetitionCrawlerTest.html">CompetitionCrawlerTest</a>.
+<a href="classes/me.lsh.javacrawler.crawler.competition.CompetitionCrawlerTest.html#이벤트_크롤링_테스트()">이벤트_크롤링_테스트()</a>
+</li>
+<li>
+<a href="classes/me.lsh.javacrawler.crawler.moim.MoimCrawlerTest.html">MoimCrawlerTest</a>.
+<a href="classes/me.lsh.javacrawler.crawler.moim.MoimCrawlerTest.html#이벤트_크롤링_테스트()">이벤트_크롤링_테스트()</a>
+</li>
+<li>
+<a href="classes/me.lsh.javacrawler.parser.moim.festa.MoimLinkParserTest.html">MoimLinkParserTest</a>.
+<a href="classes/me.lsh.javacrawler.parser.moim.festa.MoimLinkParserTest.html#initializationError">initializationError</a>
+</li>
+<li>
+<a href="classes/me.lsh.javacrawler.parser.moim.festa.RootElementParserTest.html">RootElementParserTest</a>.
+<a href="classes/me.lsh.javacrawler.parser.moim.festa.RootElementParserTest.html#initializationError">initializationError</a>
+</li>
+<li>
+<a href="classes/me.lsh.javacrawler.service.recommend.RecommendServiceTest.html">RecommendServiceTest</a>.
+<a href="classes/me.lsh.javacrawler.service.recommend.RecommendServiceTest.html#빈도가_높은_시상규모_혜택_공모전_추천()">빈도가_높은_시상규모_혜택_공모전_추천()</a>
+</li>
+<li>
+<a href="classes/me.lsh.javacrawler.service.recommend.RecommendServiceTest.html">RecommendServiceTest</a>.
+<a href="classes/me.lsh.javacrawler.service.recommend.RecommendServiceTest.html#사용자_관심_기술_공모전_추천()">사용자_관심_기술_공모전_추천()</a>
+</li>
+<li>
+<a href="classes/me.lsh.javacrawler.service.recommend.RecommendServiceTest.html">RecommendServiceTest</a>.
+<a href="classes/me.lsh.javacrawler.service.recommend.RecommendServiceTest.html#사용자_관심_기술_모임_추천()">사용자_관심_기술_모임_추천()</a>
+</li>
+</ul>
+</div>
+<div id="tab1" class="tab">
 <h2>Packages</h2>
 <table>
 <thead>
@@ -79,24 +115,24 @@
 </thead>
 <tbody>
 <tr>
-<td class="success">
+<td class="failures">
 <a href="packages/me.lsh.javacrawler.crawler.competition.html">me.lsh.javacrawler.crawler.competition</a>
 </td>
 <td>1</td>
+<td>1</td>
 <td>0</td>
-<td>0</td>
-<td>4.291s</td>
-<td class="success">100%</td>
+<td>0.004s</td>
+<td class="failures">0%</td>
 </tr>
 <tr>
-<td class="success">
+<td class="failures">
 <a href="packages/me.lsh.javacrawler.crawler.moim.html">me.lsh.javacrawler.crawler.moim</a>
 </td>
 <td>1</td>
+<td>1</td>
 <td>0</td>
-<td>0</td>
-<td>3.670s</td>
-<td class="success">100%</td>
+<td>0.001s</td>
+<td class="failures">0%</td>
 </tr>
 <tr>
 <td class="success">
@@ -105,7 +141,7 @@
 <td>9</td>
 <td>0</td>
 <td>0</td>
-<td>0.156s</td>
+<td>0.522s</td>
 <td class="success">100%</td>
 </tr>
 <tr>
@@ -115,33 +151,33 @@
 <td>6</td>
 <td>0</td>
 <td>0</td>
-<td>0.014s</td>
+<td>0.039s</td>
 <td class="success">100%</td>
 </tr>
 <tr>
-<td class="success">
+<td class="failures">
 <a href="packages/me.lsh.javacrawler.parser.moim.festa.html">me.lsh.javacrawler.parser.moim.festa</a>
 </td>
-<td>7</td>
+<td>2</td>
+<td>2</td>
 <td>0</td>
-<td>0</td>
-<td>0.103s</td>
-<td class="success">100%</td>
+<td>0.001s</td>
+<td class="failures">0%</td>
 </tr>
 <tr>
-<td class="success">
+<td class="failures">
 <a href="packages/me.lsh.javacrawler.service.recommend.html">me.lsh.javacrawler.service.recommend</a>
 </td>
 <td>3</td>
+<td>3</td>
 <td>0</td>
-<td>0</td>
-<td>0.161s</td>
-<td class="success">100%</td>
+<td>0.001s</td>
+<td class="failures">0%</td>
 </tr>
 </tbody>
 </table>
 </div>
-<div id="tab1" class="tab">
+<div id="tab2" class="tab">
 <h2>Classes</h2>
 <table>
 <thead>
@@ -156,24 +192,24 @@
 </thead>
 <tbody>
 <tr>
-<td class="success">
+<td class="failures">
 <a href="classes/me.lsh.javacrawler.crawler.competition.CompetitionCrawlerTest.html">me.lsh.javacrawler.crawler.competition.CompetitionCrawlerTest</a>
 </td>
 <td>1</td>
+<td>1</td>
 <td>0</td>
-<td>0</td>
-<td>4.291s</td>
-<td class="success">100%</td>
+<td>0.004s</td>
+<td class="failures">0%</td>
 </tr>
 <tr>
-<td class="success">
+<td class="failures">
 <a href="classes/me.lsh.javacrawler.crawler.moim.MoimCrawlerTest.html">me.lsh.javacrawler.crawler.moim.MoimCrawlerTest</a>
 </td>
 <td>1</td>
+<td>1</td>
 <td>0</td>
-<td>0</td>
-<td>3.670s</td>
-<td class="success">100%</td>
+<td>0.001s</td>
+<td class="failures">0%</td>
 </tr>
 <tr>
 <td class="success">
@@ -182,7 +218,7 @@
 <td>3</td>
 <td>0</td>
 <td>0</td>
-<td>0s</td>
+<td>0.026s</td>
 <td class="success">100%</td>
 </tr>
 <tr>
@@ -192,7 +228,7 @@
 <td>6</td>
 <td>0</td>
 <td>0</td>
-<td>0.156s</td>
+<td>0.496s</td>
 <td class="success">100%</td>
 </tr>
 <tr>
@@ -202,7 +238,7 @@
 <td>5</td>
 <td>0</td>
 <td>0</td>
-<td>0.014s</td>
+<td>0.039s</td>
 <td class="success">100%</td>
 </tr>
 <tr>
@@ -216,34 +252,34 @@
 <td class="success">100%</td>
 </tr>
 <tr>
-<td class="success">
+<td class="failures">
 <a href="classes/me.lsh.javacrawler.parser.moim.festa.MoimLinkParserTest.html">me.lsh.javacrawler.parser.moim.festa.MoimLinkParserTest</a>
 </td>
 <td>1</td>
+<td>1</td>
 <td>0</td>
-<td>0</td>
-<td>0.026s</td>
-<td class="success">100%</td>
+<td>0s</td>
+<td class="failures">0%</td>
 </tr>
 <tr>
-<td class="success">
+<td class="failures">
 <a href="classes/me.lsh.javacrawler.parser.moim.festa.RootElementParserTest.html">me.lsh.javacrawler.parser.moim.festa.RootElementParserTest</a>
 </td>
-<td>6</td>
+<td>1</td>
+<td>1</td>
 <td>0</td>
-<td>0</td>
-<td>0.077s</td>
-<td class="success">100%</td>
+<td>0.001s</td>
+<td class="failures">0%</td>
 </tr>
 <tr>
-<td class="success">
+<td class="failures">
 <a href="classes/me.lsh.javacrawler.service.recommend.RecommendServiceTest.html">me.lsh.javacrawler.service.recommend.RecommendServiceTest</a>
 </td>
 <td>3</td>
+<td>3</td>
 <td>0</td>
-<td>0</td>
-<td>0.161s</td>
-<td class="success">100%</td>
+<td>0.001s</td>
+<td class="failures">0%</td>
 </tr>
 </tbody>
 </table>
@@ -256,7 +292,7 @@
 <input id="line-wrapping-toggle" type="checkbox" autocomplete="off"/>
 </label>
 </div>Generated by 
-<a href="http://www.gradle.org">Gradle 7.6.1</a> at 2023. 5. 30. 오전 1:09:58</p>
+<a href="http://www.gradle.org">Gradle 7.6.1</a> at 2023. 5. 30. 오후 8:54:53</p>
 </div>
 </div>
 </body>

@@ -11,15 +11,15 @@ public class WebCrawlerParsingException extends RuntimeException {
 
     private String url;
 
-    public WebCrawlerParsingException(final String message, final Class<?> parserClass) {
-        super(message);
+    public WebCrawlerParsingException(final String message, final Class<?> parserClass, final Throwable cause) {
+        super(message, cause);
         this.message = message;
         this.parserClass = parserClass;
     }
 
     public WebCrawlerParsingException(final String message, final String url,
-        final Class<?> parserClass) {
-        super(message);
+        final Class<?> parserClass, final Throwable cause) {
+        super(message, cause);
         this.message = message;
         this.parserClass = parserClass;
         this.url = url;
@@ -29,11 +29,13 @@ public class WebCrawlerParsingException extends RuntimeException {
     public String getMessage() {
         StringBuilder sb = new StringBuilder();
         sb.append(String.format("[%-20s]  :  %s",
-            parserClass.getName(), message)
+            parserClass.getSimpleName(), message)
         );
         if (url != null) {
             sb.append(String.format("\t[%s]", url));
         }
+        sb.append("\n\t-> Caused by: ");
+        sb.append(this.getCause().getMessage());
         return sb.toString();
     }
 }

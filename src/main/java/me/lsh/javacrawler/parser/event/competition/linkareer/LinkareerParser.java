@@ -30,7 +30,7 @@ public class LinkareerParser implements CompetitionParser {
         try {
             return contentParser.parse(url, document);
         } catch (Exception e) {
-            throw new WebCrawlerParsingException(e.getMessage(), url, contentParser.getClass());
+            throw new WebCrawlerParsingException(e.getMessage(), url, contentParser.getClass(), e);
         }
     }
 }

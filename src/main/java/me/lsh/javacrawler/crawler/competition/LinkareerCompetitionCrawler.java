@@ -40,15 +40,17 @@ public class LinkareerCompetitionCrawler extends EventCrawler
         for (int i = 1; i <= DEFAULT_CRAWL_PAGES; i++) {
             links.addAll(crawlLinksOf(i));
         }
-        if (links.size() == 0) {
-            throw new WebCrawlerParsingException("Can not parse page : " + BASE_URL,
-                this.parser.getClass());
-        }
         return new ArrayList<>(links);
     }
 
     private Set<Integer> crawlLinksOf(final int pageNumber) {
-        return parser.parseLinks(fetchDocument(BASE_URL + "&page=" + pageNumber));
+        try {
+            return parser.parseLinks(fetchDocument(BASE_URL + "&page=" + pageNumber));
+        } catch (WebCrawlerParsingException e) {
+            throw new WebCrawlerParsingException(
+                "Can not parse page : " + BASE_URL,
+                this.parser.getClass(), e);
+        }
     }
 
     @Override

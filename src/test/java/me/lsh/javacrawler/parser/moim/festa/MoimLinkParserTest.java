@@ -3,7 +3,7 @@ package me.lsh.javacrawler.parser.moim.festa;
 import static org.junit.jupiter.api.Assertions.assertNotEquals;
 
 import java.util.Set;
-import me.lsh.javacrawler.config.driver.DriverConfig;
+import me.lsh.javacrawler.crawler.TestCrawlerConfig;
 import me.lsh.javacrawler.parser.event.MoimLinkParser;
 import me.lsh.javacrawler.parser.event.moim.festa.FestaLinkParser;
 import org.jsoup.Jsoup;
@@ -11,7 +11,9 @@ import org.junit.jupiter.api.BeforeAll;
 import org.junit.jupiter.api.Test;
 import org.openqa.selenium.JavascriptExecutor;
 import org.openqa.selenium.WebDriver;
+import org.springframework.context.annotation.Import;
 
+@Import({TestCrawlerConfig.class})
 class MoimLinkParserTest {
 
     private static final String BASE_URL = "https://festa.io/events";
@@ -20,8 +22,8 @@ class MoimLinkParserTest {
 
     @BeforeAll
     static void tearUp() throws InterruptedException {
-        DriverConfig driverConfig = new DriverConfig();
-        driver = driverConfig.chromeDriver();
+        TestCrawlerConfig driverConfig = new TestCrawlerConfig();
+        driver = driverConfig.testDriver();
         driver.get(BASE_URL);
         Thread.sleep(1000);
         scroll();
