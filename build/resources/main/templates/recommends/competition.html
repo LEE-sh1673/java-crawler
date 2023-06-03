@@ -13,10 +13,9 @@
                 <div class="position-relative d-flex flex-column gap-4">
                     <div>
                         <div class="profile__container profile__recommend profile__meta d-flex gap-5">
-                            <div class="profile__recommend__wrapper" id="recommend__header">
-                                <div class="profile__recommend-title">
-                                    <span>더 편리하고 똑똑하게___</span>
-                                    <h3>당신을 위해 준비한 공고를 확인해보세요.</h3>
+                            <div class="profile__recommend__wrapper align-items-start">
+                                <div class="profile__recommend-title profile__recommend-title__lg">
+                                    <h3>주간 레포트</h3>
                                 </div>
                                 <div class="profile__recommend-btn">
                                     <p class="text-light recommend__description d-flex gap-2">
@@ -29,12 +28,9 @@
                         </div>
                     </div>
 
-                    <nav class="profile__container profile__meta d-flex gap-4 p-4 recommend__nav">
-                        <a th:href="@{/recommends/competitions}" class="recommend__nav-item active">
-                            <i class="bi bi-dot"></i><span>공모전 레포트</span>
-                        </a>
-                        <a th:href="@{/recommends/moims}" class="recommend__nav-item">
-                            <i class="bi bi-dot"></i><span>모임 레포트</span>
+                    <nav class="profile__container profile__meta d-flex gap-4 pt-0 recommend__nav">
+                        <a th:href="@{/recommends/}" class="recommend__nav-item d-flex gap-2">
+                            <i class="bi bi-arrow-left"></i><span>목록으로</span>
                         </a>
                     </nav>
 

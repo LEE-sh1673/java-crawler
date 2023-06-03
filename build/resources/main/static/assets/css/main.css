@@ -2163,6 +2163,11 @@ section {
   font-size: 1.125rem;
 }
 
+.recommend__item {
+  padding: 2rem 1.5rem;
+  box-shadow: 0 10px 15px -3px rgb(0 0 0/0.1), 0 4px 6px -4px rgb(0 0 0/0.1);
+}
+
 .recommend__container {
   font-size: 1.0625rem;
   word-break: keep-all;
@@ -2752,6 +2757,16 @@ section {
   background: linear-gradient(to right, rgba(0, 120, 255, 0.8), #0078FF), url("/assets/img/recommend_cover.png") center;
 }
 
+.recommend__avatar {
+  width: 40px;
+  height: auto;
+  border-radius: 50%;
+  padding: 0;
+  aspect-ratio: 1/1;
+  background: url("/assets/img/avatar.png") center;
+  background-size: cover;
+}
+
 #navbar__auth {
   width: 100%;
   display: flex;
@@ -2775,6 +2790,19 @@ section {
   padding: 0px;
   gap: 10px;
 }
+.profile__recommend h3 {
+  font-weight: 600;
+  font-size: 2rem;
+  display: flex;
+  align-items: center;
+  letter-spacing: -0.02em;
+  color: #FFFFFF;
+}
+
+.profile__recommend-title.profile__recommend-title__lg h3 {
+  font-size: 2.75rem;
+  font-weight: 700;
+}
 
 .profile__recommend-title span {
   font-weight: 500;
@@ -2787,15 +2815,6 @@ section {
 
 #recommend__header span {
   font-size: 1.315rem;
-}
-
-.profile__recommend h3 {
-  font-weight: 600;
-  font-size: 2rem;
-  display: flex;
-  align-items: center;
-  letter-spacing: -0.02em;
-  color: #FFFFFF;
 }
 
 #recommend__header h3 {

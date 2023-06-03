@@ -41,9 +41,9 @@
             </div>
           </div>
           <div
-              th:with="hasBookmark = ${competitions.totalElements <= 5 or moims.totalElements <= 5}">
+              th:with="hasRecommend = ${hasRecommendCompetition}">
             <div
-                th:unless="${hasBookmark}"
+                th:if="${hasRecommend}"
                 class="profile__container profile__recommend profile__meta d-flex gap-5">
               <div class="profile__recommend__wrapper">
                 <div class="profile__recommend-title">
@@ -51,14 +51,14 @@
                   <h3>당신을 위해 준비한 공고를 확인해보세요.</h3>
                 </div>
                 <div class="profile__recommend-btn">
-                  <a th:href="@{/recommends/competitions}" class="d-flex gap-1">
+                  <a th:href="@{/recommends}" class="d-flex gap-1">
                     <span>확인하러 가기</span>
                     <i class="bi bi-arrow-right"></i>
                   </a>
                 </div>
               </div>
             </div>
-            <div th:if="${hasBookmark}" class="profile__container profile__meta profile__container__dashed">
+            <div th:unless="${hasRecommend}" class="profile__container profile__meta profile__container__dashed">
               <i class="bi bi-question-circle opacity-75"></i>
               <span class="opacity-75">
                 마음에 드는 공고를 북마크 해보세요. 더 편리한 기능을 제공해드릴게요 :)
