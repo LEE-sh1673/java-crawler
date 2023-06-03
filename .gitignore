@@ -39,4 +39,12 @@ application-oauth.properties
 
 src/test/java/me/lsh/javacrawler/service/recommend/
 src/test/java/me/lsh/javacrawler/crawler/
+src/test/java/me/lsh/javacrawler/parser/
+src/test/java/me/lsh/javacrawler/repository/
+src/test/java/me/lsh/javacrawler/config/
 CompetitionRepositoryTest.java
+
+build/classes/java/test/me/lsh/javacrawler/crawler
+build/classes/java/test/me/lsh/javacrawler/repository
+build/classes/java/test/me/lsh/javacrawler/parser
+build/classes/java/test/me/lsh/javacrawler/config
