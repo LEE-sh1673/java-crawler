@@ -1,0 +1,44 @@
+2023-06-02 21:57:58.057 크롤링 시작
+2023-06-02 21:58:01.428 페이지 내 공고 아이디 크롤링: [3612, 3608, 3606, 3605, 3601, 3587, 3585, 3584, 3577, 3576, 3574, 3573, 3567, 3562, 3561, 3558, 3557, 3556, 3554, 3552, 3547, 3544, 3539, 3538, 3537, 3532, 3530, 3529, 3515, 3508, 3504, 3454, 3452, 3364, 3363, 3276, 3275, 3215, 3021]
+2023-06-02 21:58:01.428 크롤링된 공고 개수: 39
+2023-06-02 21:58:03.688 페이지 크롤링 :  [3612] [인덕대학교/무료] DCX기반 빅데이터 분석 실무 역량과정 (~6/18)
+2023-06-02 21:58:03.739 	-> 페이지가 저장됨
+2023-06-02 21:58:05.915 페이지 크롤링 :  [3608] [챗GPT] 올빼미 클럽 3회차 세미나 '생성형 AI 기술분야 트렌드 동향'
+2023-06-02 21:58:05.920 	-> 페이지가 저장됨
+2023-06-02 21:58:08.099 페이지 크롤링 :  [3606] 1개월 이내 매출 200만 원 만들기 강의 (6/8~)(feat 미친 스마트 스토어) (선착순 인원한정)
+2023-06-02 21:58:08.103 	-> 페이지가 저장됨
+2023-06-02 21:58:10.273 페이지 크롤링 :  [3605] Build After Party 2023 x .NET Dev
+2023-06-02 21:58:10.277 	-> 페이지가 저장됨
+2023-06-02 21:58:12.445 페이지 크롤링 :  [3601] ICT콤플렉스 스타트업 투자상담회 참가기업 모집
+2023-06-02 21:58:12.449 	-> 페이지가 저장됨
+2023-06-02 21:58:14.623 페이지 크롤링 :  [3587] 파이썬으로 쉽게 웹이든 데스크탑이든 GUI를 만들어봐요!
+2023-06-02 21:58:16.811 페이지 크롤링 :  [3585] 야너두 NestJS!
+2023-06-02 21:58:16.813 	-> 페이지가 갱신됨
+2023-06-02 21:58:18.984 페이지 크롤링 :  [3584] 한국 SAFe 커뮤니티 6월 밋업
+2023-06-02 21:58:21.231 페이지 크롤링 :  [3577] [MODUPOP X AF] 챗GPT 기반 서비스 만들기
+2023-06-02 21:58:21.234 	-> 페이지가 저장됨
+2023-06-02 21:58:23.417 페이지 크롤링 :  [3576] [MODUPOP] 양자머신러닝 국내외 연구동향
+2023-06-02 21:58:25.622 페이지 크롤링 :  [3574] [MODUPOP X AF] Microsoft Build 2023 Community-Led After Parties
+2023-06-02 21:58:27.819 페이지 크롤링 :  [3573] [1:1법률상담] 6/20 수서동 기업 무료 법률 라운지
+2023-06-02 21:58:29.992 페이지 크롤링 :  [3567] [저자 특강] 처음 배우는 NHN Cloud
+2023-06-02 21:58:32.169 페이지 크롤링 :  [3562] 연세대학교와 함께하는 창업 교육 [2023 창업 온앤오프 O·Y·D]
+2023-06-02 21:58:34.342 페이지 크롤링 :  [3561] ChatGPT 시대에 인공지능은 필수입니다 - 아이펠 교육생 모집
+2023-06-02 21:58:36.497 페이지 크롤링 :  [3558] 인천스타트업파크 [청년·스타트업] 네트워킹 참여기업 모집
+2023-06-02 21:58:38.664 페이지 크롤링 :  [3557] [채용확정형] 백엔드 개발자 취업 과정
+2023-06-02 21:58:40.877 페이지 크롤링 :  [3556] 2023 adiOS Summore
+2023-06-02 21:58:43.054 페이지 크롤링 :  [3554] 파이콘 US 2023 후기 공유 세미나
+2023-06-02 21:58:45.235 페이지 크롤링 :  [3552] IT전문 교육기관 스나이퍼팩토리 서포터즈 3기 모집
+2023-06-02 21:58:47.419 페이지 크롤링 :  [3547] WWDC Watch Party 2023
+2023-06-02 21:58:49.682 페이지 크롤링 :  [3544] 제2회 EXCELCON
+2023-06-02 21:58:51.838 페이지 크롤링 :  [3539] K-컬처 브랜드 단하주단, 미미달 여성 창업가의 창업 인사이트 강연과 워크숍
+2023-06-02 21:58:54.005 페이지 크롤링 :  [3538] 파이썬 & 자바 개발자 양성과정
+2023-06-02 21:58:56.169 페이지 크롤링 :  [3537] Google I/O Extended Daejeon 2023
+2023-06-02 21:58:58.345 페이지 크롤링 :  [3532] [에이콘아카데미] 빅데이터분석(파이썬) & 자바 개발자 양성과정 ▶ 06월 29일 개강
+2023-06-02 21:58:59.905 Error communicating with the remote browser. It may have died.
+Build info: version: '4.1.4', revision: '535d840ee2'
+System info: host: 'DESKTOP-0OQVVMP', ip: '172.17.64.1', os.name: 'Windows 10', os.arch: 'amd64', os.version: '10.0', java.version: '11.0.18'
+Driver info: org.openqa.selenium.chrome.ChromeDriver
+Command: [8de9e4eed0810af2f2d96bf12461add8, getPageSource {}]
+Capabilities {acceptInsecureCerts: false, browserName: chrome, browserVersion: 113.0.5672.129, chrome: {chromedriverVersion: 113.0.5672.63 (0e1a4471d5ae..., userDataDir: C:\Users\lsh90\AppData\Loca...}, goog:chromeOptions: {debuggerAddress: localhost:58298}, javascriptEnabled: true, networkConnectionEnabled: false, pageLoadStrategy: normal, platform: WINDOWS, platformName: WINDOWS, proxy: Proxy(), se:cdp: ws://localhost:58298/devtoo..., se:cdpVersion: 113.0.5672.129, setWindowRect: true, strictFileInteractability: false, timeouts: {implicit: 0, pageLoad: 300000, script: 30000}, unhandledPromptBehavior: dismiss and notify, webauthn:extension:credBlob: true, webauthn:extension:largeBlob: true, webauthn:extension:minPinLength: true, webauthn:extension:prf: true, webauthn:virtualAuthenticators: true}
+Session ID: 8de9e4eed0810af2f2d96bf12461add8
+2023-06-02 21:58:59.905 크롤링 종료

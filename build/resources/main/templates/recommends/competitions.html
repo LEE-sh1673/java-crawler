@@ -1,0 +1,418 @@
+<!DOCTYPE html>
+<html lang="ko" xmlns:th="http://www.thymeleaf.org">
+<head th:replace="fragments/header :: header">
+  <title th:title="${member.name}"></title>
+  <meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/>
+</head>
+<body class="competitions" id="competitions__page">
+<header th:replace="fragments/bodyHeader :: bodyHeader"/>
+<main id="main">
+  <section class="container">
+    <div class="col-md-8 mx-auto">
+      <div class="post-item position-relative h-100 profile__content">
+        <div class="position-relative d-flex flex-column gap-4">
+          <div>
+            <div
+                class="profile__container profile__recommend profile__meta d-flex gap-5">
+              <div class="profile__recommend__wrapper" id="recommend__header">
+                <div class="profile__recommend-title">
+                  <span>더 편리하고 똑똑하게___</span>
+                  <h3>당신을 위해 준비한 공고를 확인해보세요.</h3>
+                </div>
+                <div class="profile__recommend-btn">
+                  <p class="text-light recommend__description">
+                    Meet IT ALL은 사용자의 자료를 바탕으로 다양한 추천 정보를 제공드립니다.
+                  </p>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <nav class="profile__container profile__meta d-flex gap-4 p-4 recommend__nav">
+            <a th:href="@{/recommends/competitions}" class="recommend__nav-item active">
+              <i class="bi bi-dot"></i><span>공모전 레포트</span>
+            </a>
+            <a th:href="@{/recommends/moims}" class="recommend__nav-item">
+              <i class="bi bi-dot"></i><span>모임 레포트</span>
+            </a>
+          </nav>
+
+          <div class="profile__container profile__meta d-flex gap-5">
+            <div class="d-flex align-content-start flex-column mb-2 gap-4 w-100" th:if="${competitions}">
+              <div class="d-flex flex-column gap-3 align-content-start" th:if="${competitionStatistics}">
+                <h4 class="recommend__title">북마크 리포트 📝</h4>
+                <div class="d-flex flex-column recommend__container" th:object="${competitionStatistics.get(0)}">
+                  <p class="w-75">
+                    <span class="recommend__highlight username" th:text="${member.name}"></span>님은
+                    참여대상이
+                    <span class="recommend__highlight">
+                      <span class="highlight__title"
+                            th:text="*{applicant.name}"></span>
+                      <span class="underline"></span>
+                    </span>이고,
+                    시상 혜택이
+                    <span class="recommend__highlight">
+                      <span class="highlight__title"
+                            th:text="*{awardScale.name}"></span>
+                      <span class="underline"></span>
+                    </span>이며, 시상 규모가
+                    <span class="recommend__highlight">
+                      <span class="highlight__title"
+                            th:text="*{awardBenefit.name}"></span>
+                      <span class="underline"></span>
+                    </span>
+                    에 해당하는 공모전을 가장 많이 찾아보셨군요?
+                  </p>
+                  <div class="d-flex justify-content-center w-75 mx-auto mt-4 mb-4">
+                    <canvas id="myChart"></canvas>
+                  </div>
+                  <p>이런 공모전은 어떠신가요?</p>
+                </div>
+              </div>
+              <div class="d-flex align-content-start">
+                <div class="d-flex flex-column gap-1 w-100"
+                     th:with="bookmarks=${competitions.totalElements eq 0}">
+
+                  <div th:if="${bookmarks}">
+                    <span class="text-secondary opacity-75">추천드릴 수 있는 공모전이 없습니다 :(</span>
+                  </div>
+
+                  <div th:unless="${bookmarks}"
+                       th:each="bookmark : ${competitions}"
+                       th:object="${bookmark}"
+                       class="border-bottom w-100 pb-3 pt-3">
+                    <div class="d-flex w-100 gap-2">
+                      <div class="w-25 h-50">
+                        <img class="img-fluid lazy w-75 bookmark__thumbnail"
+                             th:data-src="*{thumbnail}">
+                      </div>
+                      <div class="w-100">
+                        <div class="d-flex align-items-center justify-content-between gap-4 w-100 mb-2">
+                          <a th:href="@{/competitions/{id}(id=*{id})}">
+                            <h5 class="bookmark__title" th:text="*{title}"></h5>
+                          </a>
+                        </div>
+                        <div class="d-flex align-items-center mb-2 gap-2">
+                          <div class="d-flex align-items-start competition__date"
+                               th:with="condition=*{isExpired}">
+                            <span th:if="${condition}" class="mb-0 post-date__expired">마감됨</span>
+                            <span th:unless="${condition}" class="mb-0 bookmark__date"
+                                  th:classappend="*{DDay} == 0 ? 'post-date__due_today' : ''"
+                                  th:text="*{DDay} == 0 ? '오늘마감' : 'D-' + *{DDay}">
+                              </span>
+                          </div>
+                          <div
+                              class="bookmark__organizer d-flex align-items-start text-secondary opacity-75 w-75">
+                            <i class="bi bi-building"></i>
+                            <div class="d-flex align-items-center ps-2 w-75">
+                              <div class="text-overflow__ellipsis"
+                                   data-toggle="tooltip"
+                                   data-placement="top"
+                                   th:text="*{organizer}"></div>
+                            </div>
+                          </div>
+                        </div>
+                        <div class="d-flex align-items-start gap-3 bookmark__meta mb-2">
+                          <div class="d-flex align-items-start text-secondary opacity-75">
+                            <i class="bi bi-person"></i>
+                            <div class="d-flex align-items-center">
+                              <span class="competition__meta ps-1"
+                                    th:each="applicant, applicantStat: *{applicants}"
+                                    th:text="${applicantStat.last} ? ${applicant.name} : ${applicant.name} + ', '">
+                              </span>
+                            </div>
+                          </div>
+                          <div class="d-flex align-items-start text-secondary opacity-75">
+                            <i class="bi bi-cash-stack"></i>
+                            <span class="ps-2" th:text="*{awardAmount}"></span>
+                          </div>
+                          <div class="d-flex align-items-start text-secondary opacity-75">
+                            <i class="bi bi-award"></i>
+                            <div class="d-flex align-items-center">
+                              <span class="competition__meta ps-1"
+                                    th:each="awardBenefit, awardBenefitStat: *{awardBenefits}"
+                                    th:text="${awardBenefitStat.last} ? ${awardBenefit.name} : ${awardBenefit.name} + ', '">
+                              </span>
+                            </div>
+                          </div>
+                        </div>
+                        <div class="d-flex align-items-start gap-3 bookmark__meta">
+                          <div class="d-flex align-items-start text-secondary opacity-75">
+                            <i class="bi bi-bookmark"></i>
+                            <span class="ps-2" th:text="*{bookmarkCount}"></span>
+                          </div>
+                          <div class="d-flex align-items-start text-secondary opacity-75">
+                            <i class="bi bi-eye"></i>
+                            <span class="ps-2" th:text="*{viewCount}"></span>
+                          </div>
+                          <div class="d-flex align-items-start text-secondary opacity-75">
+                            <div class="mb-2 d-flex align-content-start post-skills"
+                                 th:if="*{skills}">
+                              <div class="d-flex align-content-center">
+                                <span th:each="skill, skillStat : *{skills}"
+                                      th:unless="${skill.isNoSkill()}">
+                                    <a class="bookmark__skill"
+                                       th:href="@{/competitions(skills=${skill})}">
+                                      <span th:text="${skill.name}"></span>
+                                    </a>
+                                </span>
+                              </div>
+                            </div>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+
+              <div th:if="${!competitions.isEmpty()}">
+                <ul class="pagination justify-content-center">
+
+                  <li class="page-item" th:classappend="${!competitions.hasPrevious} ? 'disabled'">
+                    <a class="page-link" id="page-prev"
+                       th:href="@{|?bk_page=${competitions.number - 1}&skill_page=${skillCompetitions.number}|}">
+                      <span>이전</span>
+                    </a>
+                  </li>
+                  <li th:each="bk_page: ${#numbers.sequence(0, competitions.totalPages -1)}"
+                      th:classappend="${bk_page == competitions.number} ? 'active'" class="page-item">
+                    <a th:text="${bk_page + 1}" class="page-link page-number"
+                       th:href="@{|?bk_page=${bk_page}&skill_page=${skillCompetitions.number}|}"></a>
+                  </li>
+
+                  <li class="page-item" th:classappend="${!competitions.hasNext} ? 'disabled'">
+                    <a class="page-link" id="page-prev-next"
+                       th:href="@{|?bk_page=${competitions.number + 1}&skill_page=${skillCompetitions.number}|}">
+                      <span>다음</span>
+                    </a>
+                  </li>
+                </ul>
+              </div>
+            </div>
+          </div>
+
+          <div class="profile__container profile__meta d-flex gap-5">
+            <div class="d-flex align-content-start flex-column mb-2 gap-4 w-100">
+              <div class="d-flex flex-column gap-3 align-content-start">
+                <h4 class="recommend__title">당신의 선호 기술은? 👀</h4>
+                <div class="d-flex flex-column recommend__container">
+                  <p class="w-75">
+                    <span class="recommend__highlight" th:text="${member.name}"></span>님은
+                    주로
+                    <span class="d-flex align-items-center flex-wrap mt-4 mb-4 gap-2">
+                      <span th:each="frequentSkill, skillStat : ${frequentSkills}" class="recommend__skill">
+                        <span th:text="${frequentSkill.skill}"></span>
+                      </span>
+                    </span>
+                    에 해당하는 공모전을 가장 많이 찾아보셨군요?
+                  </p>
+                  <div class="d-flex justify-content-center w-75 mx-auto mt-4 mb-4">
+                    <canvas id="skillChart"></canvas>
+                  </div>
+                  <p>이런 공모전은 어떠신가요?</p>
+                </div>
+              </div>
+              <div class="d-flex align-content-start">
+                <div class="d-flex flex-column gap-1 w-100"
+                     th:with="bookmarks=${skillCompetitions.totalElements eq 0}">
+
+                  <div th:if="${bookmarks}">
+                    <span class="text-secondary opacity-75">추천드릴 수 있는 공모전이 없습니다 :(</span>
+                  </div>
+
+                  <div th:unless="${bookmarks}"
+                       th:each="bookmark : ${skillCompetitions}"
+                       th:object="${bookmark}"
+                       class="border-bottom w-100 pb-3 pt-3">
+                    <div class="d-flex w-100 gap-2">
+                      <div class="w-25 h-50">
+                        <img class="img-fluid lazy w-75 bookmark__thumbnail"
+                             th:data-src="*{thumbnail}">
+                      </div>
+                      <div class="w-100">
+                        <div class="d-flex align-items-center justify-content-between gap-4 w-100 mb-2">
+                          <a th:href="@{/competitions/{id}(id=*{id})}">
+                            <h5 class="bookmark__title" th:text="*{title}"></h5>
+                          </a>
+                        </div>
+                        <div class="d-flex align-items-center mb-2 gap-2">
+                          <div class="d-flex align-items-start competition__date"
+                               th:with="condition=*{isExpired}">
+                            <span th:if="${condition}" class="mb-0 post-date__expired">마감됨</span>
+                            <span th:unless="${condition}" class="mb-0 bookmark__date"
+                                  th:classappend="*{DDay} == 0 ? 'post-date__due_today' : ''"
+                                  th:text="*{DDay} == 0 ? '오늘마감' : 'D-' + *{DDay}">
+                              </span>
+                          </div>
+                          <div
+                              class="bookmark__organizer d-flex align-items-start text-secondary opacity-75 w-75">
+                            <i class="bi bi-building"></i>
+                            <div class="d-flex align-items-center ps-2 w-75">
+                              <div class="text-overflow__ellipsis"
+                                   data-toggle="tooltip"
+                                   data-placement="top"
+                                   th:text="*{organizer}"></div>
+                            </div>
+                          </div>
+                        </div>
+                        <div class="d-flex align-items-start gap-3 bookmark__meta">
+                          <div class="d-flex align-items-start text-secondary opacity-75">
+                            <i class="bi bi-bookmark"></i>
+                            <span class="ps-2" th:text="*{bookmarkCount}"></span>
+                          </div>
+                          <div class="d-flex align-items-start text-secondary opacity-75">
+                            <i class="bi bi-eye"></i>
+                            <span class="ps-2" th:text="*{viewCount}"></span>
+                          </div>
+                          <div class="d-flex align-items-start text-secondary opacity-75">
+                            <div class="mb-2 d-flex align-content-start post-skills"
+                                 th:if="*{skills}">
+                              <div class="d-flex align-content-center">
+                                <span th:each="skill, skillStat : *{skills}"
+                                      th:unless="${skill.isNoSkill()}">
+                                    <a class="bookmark__skill"
+                                       th:href="@{/competitions(skills=${skill})}">
+                                      <span th:text="${skill.name}"></span>
+                                    </a>
+                                </span>
+                              </div>
+                            </div>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+
+              <div th:if="${!skillCompetitions.isEmpty()}">
+                <ul class="pagination justify-content-center">
+
+                  <li class="page-item" th:classappend="${!skillCompetitions.hasPrevious} ? 'disabled'">
+                    <a class="page-link" id="moimsPage-prev"
+                       th:href="@{|?bk_page=${competitions.number}&skill_page=${skillCompetitions.number - 1}|}">
+                      <span>이전</span>
+                    </a>
+                  </li>
+                  <li th:each="skill_page: ${#numbers.sequence(0, skillCompetitions.totalPages -1)}"
+                      th:classappend="${skill_page == skillCompetitions.number} ? 'active'" class="page-item">
+                    <a th:text="${skill_page + 1}" class="page-link page-number"
+                       th:href="@{|?bk_page=${competitions.number}&skill_page=${skill_page}|}"></a>
+                  </li>
+
+                  <li class="page-item" th:classappend="${!skillCompetitions.hasNext} ? 'disabled'">
+                    <a class="page-link" id="moimsPage-prev-next"
+                       th:href="@{|?bk_page=${competitions.number}&skill_page=${skillCompetitions.number + 1}|}">
+                      <span>다음</span>
+                    </a>
+                  </li>
+                </ul>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+</main>
+
+<a href="#" class="scroll-top d-flex align-items-center justify-content-center"><i
+    class="bi bi-arrow-up-short"></i></a>
+
+<div id="preloader"></div>
+
+<!-- Vendor JS Files -->
+<script src="/assets/vendor/aos/aos.js"></script>
+<script src="/assets/vendor/isotope-layout/isotope.pkgd.min.js"></script>
+<script src="/assets/vendor/swiper/swiper-bundle.min.js"></script>
+<script src="/assets/vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
+<script src="/assets/vendor/glightbox/js/glightbox.min.js"></script>
+<script src="/assets/vendor/purecounter/purecounter_vanilla.js"></script>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.4/jquery.min.js"></script>
+
+<!-- Template Main JS File -->
+<script src="/assets/js/main.js"></script>
+<script src="/assets/js/lazyloading.js"></script>
+<script src="/assets/js/profile.js"></script>
+
+<script>
+  $(document).ready(function () {
+    $('[data-toggle="tooltip"]').tooltip();
+  });
+  document.addEventListener("DOMContentLoaded", () => {
+    document.querySelectorAll("img").forEach(img => img.classList.add("img-fluid"));
+  })
+</script>
+
+<script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+
+<script th:inline="javascript">
+  const compCtx = document.getElementById('myChart');
+  const skillCtx = document.getElementById('skillChart');
+
+  const statistics = [[${competitionStatistics}]];
+  const frequentSkills = [[${frequentSkills}]];
+
+  const compLabels = [];
+  /*[# th:each="attr : ${competitionStatistics}"]*/
+  compLabels.push(["[(${attr.applicant.name})]", "[(${attr.awardScale.name})]", "[(${attr.awardBenefit.name})]"].join(', '));
+  /*[/]*/
+  const compCounts = statistics.map(attr => attr.count);
+
+  const skillLabels = frequentSkills.map(attr => attr.skill);
+  const skillCounts = frequentSkills.map(attr => attr.count);
+
+  const createChartData = (title, labels, data) => {
+    return {
+      labels: labels,
+      datasets: [{
+        axis: 'y',
+        label: title,
+        data: data,
+        backgroundColor: [
+          'rgba(255, 99, 132, 0.5)',
+          'rgba(255, 159, 64, 0.5)',
+          'rgba(255, 205, 86, 0.5)',
+          'rgba(75, 192, 192, 0.5)',
+          'rgba(54, 162, 235, 0.5)'
+        ],
+        borderColor: [
+          'rgb(255, 99, 132)',
+          'rgb(255, 159, 64)',
+          'rgb(255, 205, 86)',
+          'rgb(75, 192, 192)',
+          'rgb(54, 162, 235)'
+        ],
+        hoverOffset: 4
+      }]
+    }
+  }
+
+  new Chart(compCtx, {
+    type: 'doughnut',
+    data: createChartData('공모전 통계', compLabels, compCounts),
+    options: {
+      indexAxis: 'y',
+      scales: {
+        y: {
+          beginAtZero: true
+        },
+      }
+    }
+  });
+  new Chart(skillCtx, {
+    type: 'bar',
+    data: createChartData('관련 기술 통계', skillLabels, skillCounts),
+    options: {
+      indexAxis: 'y',
+      scales: {
+        y: {
+          beginAtZero: true
+        },
+      }
+    }
+  });
+</script>
+</body>
+</html>
