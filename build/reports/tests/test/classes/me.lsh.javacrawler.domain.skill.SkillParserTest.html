@@ -41,7 +41,7 @@
 </td>
 <td>
 <div class="infoBox" id="duration">
-<div class="counter">0.039s</div>
+<div class="counter">0.053s</div>
 <p>duration</p>
 </div>
 </td>
@@ -81,19 +81,19 @@
 <tr>
 <td class="success">url_파싱()</td>
 <td class="success">url_파싱()</td>
-<td class="success">0.009s</td>
+<td class="success">0.004s</td>
 <td class="success">passed</td>
 </tr>
 <tr>
 <td class="success">스킬_파싱()</td>
 <td class="success">스킬_파싱()</td>
-<td class="success">0.001s</td>
+<td class="success">0.002s</td>
 <td class="success">passed</td>
 </tr>
 <tr>
 <td class="success">[1] content=▪ 지원자격- 대학교 재학중인 학부생 또는 대학원생 (개인 또는 팀)▪ 접수방법- 대회 홈페이지 (https://bit.ly/3UQZJ3p)▪ 출품규격- 예선: MATLAB을 활용한 AI모델 개요 제출- 본선: 예선을 통과한 AI 모델에 대한 동영상 제출* 예선 통과 후 본선에서 동영상을 제출한 모든 팀에 커피 기프티콘을 제공합니다., expected=[AI, MATLAB]</td>
 <td class="success">스킬_파싱_본문(String, List)[1]</td>
-<td class="success">0.025s</td>
+<td class="success">0.043s</td>
 <td class="success">passed</td>
 </tr>
 <tr>
@@ -117,10 +117,10 @@ AI 머신러닝 알고리즘, AWS, 도커, 쿠버네티스, MSA,
 <div id="tab1" class="tab">
 <h2>Standard output</h2>
 <span class="code">
-<pre>2023-05-30 20:54:49.508  INFO 1884 --- [    Test worker] .b.t.c.SpringBootTestContextBootstrapper : Neither @ContextConfiguration nor @ContextHierarchy found for test class [me.lsh.javacrawler.domain.skill.SkillParserTest], using SpringBootContextLoader
-2023-05-30 20:54:49.509  INFO 1884 --- [    Test worker] o.s.t.c.support.AbstractContextLoader    : Could not detect default resource locations for test class [me.lsh.javacrawler.domain.skill.SkillParserTest]: no resource found for suffixes {-context.xml, Context.groovy}.
-2023-05-30 20:54:49.512  INFO 1884 --- [    Test worker] .b.t.c.SpringBootTestContextBootstrapper : Loaded default TestExecutionListener class names from location [META-INF/spring.factories]: [org.springframework.boot.test.autoconfigure.restdocs.RestDocsTestExecutionListener, org.springframework.boot.test.autoconfigure.web.client.MockRestServiceServerResetTestExecutionListener, org.springframework.boot.test.autoconfigure.web.servlet.MockMvcPrintOnlyOnFailureTestExecutionListener, org.springframework.boot.test.autoconfigure.web.servlet.WebDriverTestExecutionListener, org.springframework.boot.test.autoconfigure.webservices.client.MockWebServiceServerTestExecutionListener, org.springframework.boot.test.mock.mockito.MockitoTestExecutionListener, org.springframework.boot.test.mock.mockito.ResetMocksTestExecutionListener, org.springframework.test.context.web.ServletTestExecutionListener, org.springframework.test.context.support.DirtiesContextBeforeModesTestExecutionListener, org.springframework.test.context.event.ApplicationEventsTestExecutionListener, org.springframework.test.context.support.DependencyInjectionTestExecutionListener, org.springframework.test.context.support.DirtiesContextTestExecutionListener, org.springframework.test.context.transaction.TransactionalTestExecutionListener, org.springframework.test.context.jdbc.SqlScriptsTestExecutionListener, org.springframework.test.context.event.EventPublishingTestExecutionListener]
-2023-05-30 20:54:49.512  INFO 1884 --- [    Test worker] .b.t.c.SpringBootTestContextBootstrapper : Using TestExecutionListeners: [org.springframework.test.context.web.ServletTestExecutionListener@56daf3b1, org.springframework.test.context.support.DirtiesContextBeforeModesTestExecutionListener@7ba0c0e5, org.springframework.test.context.event.ApplicationEventsTestExecutionListener@1ee2e363, org.springframework.boot.test.mock.mockito.MockitoTestExecutionListener@60e83cb9, org.springframework.boot.test.autoconfigure.SpringBootDependencyInjectionTestExecutionListener@612e1c6e, org.springframework.test.context.support.DirtiesContextTestExecutionListener@1cf45f46, org.springframework.test.context.transaction.TransactionalTestExecutionListener@15045e40, org.springframework.test.context.jdbc.SqlScriptsTestExecutionListener@34a8a5ad, org.springframework.test.context.event.EventPublishingTestExecutionListener@2574123a, org.springframework.boot.test.autoconfigure.restdocs.RestDocsTestExecutionListener@1bc467bd, org.springframework.boot.test.autoconfigure.web.client.MockRestServiceServerResetTestExecutionListener@2c05ccdb, org.springframework.boot.test.autoconfigure.web.servlet.MockMvcPrintOnlyOnFailureTestExecutionListener@5d71813b, org.springframework.boot.test.autoconfigure.web.servlet.WebDriverTestExecutionListener@5891bd6d, org.springframework.boot.test.autoconfigure.webservices.client.MockWebServiceServerTestExecutionListener@6050d04d, org.springframework.boot.test.mock.mockito.ResetMocksTestExecutionListener@6231bb88]
+<pre>2023-06-04 02:26:55.108  INFO 55140 --- [    Test worker] .b.t.c.SpringBootTestContextBootstrapper : Neither @ContextConfiguration nor @ContextHierarchy found for test class [me.lsh.javacrawler.domain.skill.SkillParserTest], using SpringBootContextLoader
+2023-06-04 02:26:55.109  INFO 55140 --- [    Test worker] o.s.t.c.support.AbstractContextLoader    : Could not detect default resource locations for test class [me.lsh.javacrawler.domain.skill.SkillParserTest]: no resource found for suffixes {-context.xml, Context.groovy}.
+2023-06-04 02:26:55.114  INFO 55140 --- [    Test worker] .b.t.c.SpringBootTestContextBootstrapper : Loaded default TestExecutionListener class names from location [META-INF/spring.factories]: [org.springframework.boot.test.autoconfigure.restdocs.RestDocsTestExecutionListener, org.springframework.boot.test.autoconfigure.web.client.MockRestServiceServerResetTestExecutionListener, org.springframework.boot.test.autoconfigure.web.servlet.MockMvcPrintOnlyOnFailureTestExecutionListener, org.springframework.boot.test.autoconfigure.web.servlet.WebDriverTestExecutionListener, org.springframework.boot.test.autoconfigure.webservices.client.MockWebServiceServerTestExecutionListener, org.springframework.boot.test.mock.mockito.MockitoTestExecutionListener, org.springframework.boot.test.mock.mockito.ResetMocksTestExecutionListener, org.springframework.test.context.web.ServletTestExecutionListener, org.springframework.test.context.support.DirtiesContextBeforeModesTestExecutionListener, org.springframework.test.context.event.ApplicationEventsTestExecutionListener, org.springframework.test.context.support.DependencyInjectionTestExecutionListener, org.springframework.test.context.support.DirtiesContextTestExecutionListener, org.springframework.test.context.transaction.TransactionalTestExecutionListener, org.springframework.test.context.jdbc.SqlScriptsTestExecutionListener, org.springframework.test.context.event.EventPublishingTestExecutionListener]
+2023-06-04 02:26:55.115  INFO 55140 --- [    Test worker] .b.t.c.SpringBootTestContextBootstrapper : Using TestExecutionListeners: [org.springframework.test.context.web.ServletTestExecutionListener@7e3e1b7b, org.springframework.test.context.support.DirtiesContextBeforeModesTestExecutionListener@3fd9c5db, org.springframework.test.context.event.ApplicationEventsTestExecutionListener@a256322, org.springframework.boot.test.mock.mockito.MockitoTestExecutionListener@6860341b, org.springframework.boot.test.autoconfigure.SpringBootDependencyInjectionTestExecutionListener@668b1faf, org.springframework.test.context.support.DirtiesContextTestExecutionListener@170df9b8, org.springframework.test.context.transaction.TransactionalTestExecutionListener@3610b408, org.springframework.test.context.jdbc.SqlScriptsTestExecutionListener@5fb99e3d, org.springframework.test.context.event.EventPublishingTestExecutionListener@61f18402, org.springframework.boot.test.autoconfigure.restdocs.RestDocsTestExecutionListener@194971bd, org.springframework.boot.test.autoconfigure.web.client.MockRestServiceServerResetTestExecutionListener@2a4a3668, org.springframework.boot.test.autoconfigure.web.servlet.MockMvcPrintOnlyOnFailureTestExecutionListener@39911d6a, org.springframework.boot.test.autoconfigure.web.servlet.WebDriverTestExecutionListener@54ad5fce, org.springframework.boot.test.autoconfigure.webservices.client.MockWebServiceServerTestExecutionListener@63b187f, org.springframework.boot.test.mock.mockito.ResetMocksTestExecutionListener@7d3987a6]
 
   .   ____          _            __ _ _
  /\\ / ___'_ __ _ _(_)_ __  __ _ \ \ \ \
@@ -130,14 +130,14 @@ AI 머신러닝 알고리즘, AWS, 도커, 쿠버네티스, MSA,
  =========|_|==============|___/=/_/_/_/
  :: Spring Boot ::               (v2.7.11)
 
-2023-05-30 20:54:49.542  INFO 1884 --- [    Test worker] m.l.j.domain.skill.SkillParserTest       : Starting SkillParserTest using Java 11.0.18 on DESKTOP-0OQVVMP with PID 1884 (started by tls1998 in C:\Users\lsh90\IdeaProjects\java-crawler)
-2023-05-30 20:54:49.542  INFO 1884 --- [    Test worker] m.l.j.domain.skill.SkillParserTest       : The following 1 profile is active: &quot;oauth&quot;
-2023-05-30 20:54:49.562  INFO 1884 --- [    Test worker] m.l.j.domain.skill.SkillParserTest       : Started SkillParserTest in 0.048 seconds (JVM running for 14.527)
-2023-05-30 20:54:49.590  INFO 1884 --- [    Test worker] m.l.javacrawler.parser.RegexSkillParser  : 파싱된 기술 집합 = [] / 기술 개수 = 0
-2023-05-30 20:54:49.594  INFO 1884 --- [    Test worker] m.l.javacrawler.parser.RegexSkillParser  : 파싱된 기술 집합 = [] / 기술 개수 = 0
-2023-05-30 20:54:49.596  INFO 1884 --- [    Test worker] m.l.javacrawler.parser.RegexSkillParser  : 파싱된 기술 집합 = [BLOCK_CHAIN, LOT, AI] / 기술 개수 = 3
-2023-05-30 20:54:49.641  INFO 1884 --- [    Test worker] m.l.javacrawler.parser.RegexSkillParser  : 파싱된 기술 집합 = [AI, MATLAB] / 기술 개수 = 2
-2023-05-30 20:54:49.648  INFO 1884 --- [    Test worker] m.l.javacrawler.parser.RegexSkillParser  : 파싱된 기술 집합 = [MSA, KUBERNETES, PYTHON, DOCKER, CLOUD, AI, DJANGO, FULLSTACK, ORACLE] / 기술 개수 = 9
+2023-06-04 02:26:55.160  INFO 55140 --- [    Test worker] m.l.j.domain.skill.SkillParserTest       : Starting SkillParserTest using Java 11.0.18 on DESKTOP-0OQVVMP with PID 55140 (started by tls1998 in C:\Users\lsh90\IdeaProjects\java-crawler)
+2023-06-04 02:26:55.160  INFO 55140 --- [    Test worker] m.l.j.domain.skill.SkillParserTest       : The following 2 profiles are active: &quot;oauth&quot;, &quot;test&quot;
+2023-06-04 02:26:55.189  INFO 55140 --- [    Test worker] m.l.j.domain.skill.SkillParserTest       : Started SkillParserTest in 0.071 seconds (JVM running for 18.906)
+2023-06-04 02:26:55.194  INFO 55140 --- [    Test worker] m.l.j.d.parser.skill.RegexSkillParser    : 파싱된 기술 집합 = [] / 기술 개수 = 0
+2023-06-04 02:26:55.199  INFO 55140 --- [    Test worker] m.l.j.d.parser.skill.RegexSkillParser    : 파싱된 기술 집합 = [] / 기술 개수 = 0
+2023-06-04 02:26:55.201  INFO 55140 --- [    Test worker] m.l.j.d.parser.skill.RegexSkillParser    : 파싱된 기술 집합 = [AI, BLOCK_CHAIN, LOT] / 기술 개수 = 3
+2023-06-04 02:26:55.280  INFO 55140 --- [    Test worker] m.l.j.d.parser.skill.RegexSkillParser    : 파싱된 기술 집합 = [AI, MATLAB] / 기술 개수 = 2
+2023-06-04 02:26:55.286  INFO 55140 --- [    Test worker] m.l.j.d.parser.skill.RegexSkillParser    : 파싱된 기술 집합 = [AI, KUBERNETES, CLOUD, ORACLE, DJANGO, DOCKER, FULLSTACK, PYTHON, MSA] / 기술 개수 = 9
 </pre>
 </span>
 </div>
@@ -149,7 +149,7 @@ AI 머신러닝 알고리즘, AWS, 도커, 쿠버네티스, MSA,
 <input id="line-wrapping-toggle" type="checkbox" autocomplete="off"/>
 </label>
 </div>Generated by 
-<a href="http://www.gradle.org">Gradle 7.6.1</a> at 2023. 5. 30. 오후 8:54:53</p>
+<a href="http://www.gradle.org">Gradle 7.6.1</a> at 2023. 6. 4. 오전 2:27:04</p>
 </div>
 </div>
 </body>

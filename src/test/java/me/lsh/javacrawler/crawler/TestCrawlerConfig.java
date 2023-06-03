@@ -18,7 +18,7 @@ public class TestCrawlerConfig {
 
     @Bean
     public ChromeOptions testOptions() {
-        String webDriverPathWindows = "src/main/java/me/lsh/javacrawler/config/driver/window/chromedriver.exe";
+        String webDriverPathWindows = "src/main/java/me/lsh/javacrawler/common/config/driver/window/chromedriver.exe";
         System.setProperty(WEB_DRIVER_ID, webDriverPathWindows);
 
         ChromeOptions options = new ChromeOptions();

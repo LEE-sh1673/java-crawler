@@ -4,8 +4,8 @@ import static org.junit.jupiter.api.Assertions.assertNotEquals;
 
 import java.util.Set;
 import me.lsh.javacrawler.crawler.TestCrawlerConfig;
-import me.lsh.javacrawler.parser.event.MoimLinkParser;
-import me.lsh.javacrawler.parser.event.moim.festa.FestaLinkParser;
+import me.lsh.javacrawler.domain.parser.event.moim.MoimLinkParser;
+import me.lsh.javacrawler.domain.parser.event.moim.festa.FestaLinkParser;
 import org.jsoup.Jsoup;
 import org.junit.jupiter.api.BeforeAll;
 import org.junit.jupiter.api.Test;

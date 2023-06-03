@@ -20,9 +20,9 @@ public class QMember extends EntityPathBase<Member> {
 
     public static final QMember member = new QMember("member1");
 
-    public final me.lsh.javacrawler.domain.QBaseTimeEntity _super = new me.lsh.javacrawler.domain.QBaseTimeEntity(this);
+    public final me.lsh.javacrawler.common.domain.QBaseTimeEntity _super = new me.lsh.javacrawler.common.domain.QBaseTimeEntity(this);
 
-    public final ListPath<me.lsh.javacrawler.domain.event.BookmarkEvent, me.lsh.javacrawler.domain.event.QBookmarkEvent> bookmarkEvents = this.<me.lsh.javacrawler.domain.event.BookmarkEvent, me.lsh.javacrawler.domain.event.QBookmarkEvent>createList("bookmarkEvents", me.lsh.javacrawler.domain.event.BookmarkEvent.class, me.lsh.javacrawler.domain.event.QBookmarkEvent.class, PathInits.DIRECT2);
+    public final ListPath<me.lsh.javacrawler.domain.bookmark.BookmarkEvent, me.lsh.javacrawler.domain.bookmark.QBookmarkEvent> bookmarkEvents = this.<me.lsh.javacrawler.domain.bookmark.BookmarkEvent, me.lsh.javacrawler.domain.bookmark.QBookmarkEvent>createList("bookmarkEvents", me.lsh.javacrawler.domain.bookmark.BookmarkEvent.class, me.lsh.javacrawler.domain.bookmark.QBookmarkEvent.class, PathInits.DIRECT2);
 
     //inherited
     public final DateTimePath<java.time.LocalDateTime> createdAt = _super.createdAt;

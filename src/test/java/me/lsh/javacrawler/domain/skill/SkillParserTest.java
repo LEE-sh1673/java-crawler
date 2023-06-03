@@ -5,19 +5,19 @@ import static org.junit.jupiter.api.Assertions.assertEquals;
 import java.util.List;
 import java.util.Set;
 import java.util.stream.Stream;
-import me.lsh.javacrawler.parser.RegexMatcher;
-import me.lsh.javacrawler.parser.RegexSkillParser;
-import me.lsh.javacrawler.parser.SkillParser;
+import me.lsh.javacrawler.domain.parser.skill.RegexMatcher;
+import me.lsh.javacrawler.domain.parser.skill.RegexSkillParser;
+import me.lsh.javacrawler.domain.parser.skill.SkillParser;
 import org.assertj.core.api.Assertions;
 import org.junit.jupiter.api.Test;
-import org.junit.jupiter.api.extension.ExtendWith;
 import org.junit.jupiter.params.ParameterizedTest;
 import org.junit.jupiter.params.provider.Arguments;
 import org.junit.jupiter.params.provider.MethodSource;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.context.SpringBootTest;
-import org.springframework.test.context.junit.jupiter.SpringExtension;
+import org.springframework.test.context.ActiveProfiles;
 
+@ActiveProfiles("test")
 @SpringBootTest(classes = { RegexSkillParser.class, RegexMatcher.class })
 class SkillParserTest {
 

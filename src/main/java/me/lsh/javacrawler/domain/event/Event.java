@@ -20,7 +20,7 @@ import lombok.AccessLevel;
 import lombok.AllArgsConstructor;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
-import me.lsh.javacrawler.domain.BaseTimeEntity;
+import me.lsh.javacrawler.common.domain.BaseTimeEntity;
 import me.lsh.javacrawler.domain.skill.Skill;
 import me.lsh.javacrawler.service.dto.EventUpdateDto;
 

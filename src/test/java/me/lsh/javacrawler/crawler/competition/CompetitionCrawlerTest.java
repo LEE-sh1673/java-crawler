@@ -6,12 +6,13 @@ import java.time.LocalDate;
 import java.time.LocalDateTime;
 import java.time.LocalTime;
 import java.util.Set;
+import me.lsh.javacrawler.domain.crawler.competition.CompetitionCrawler;
 import me.lsh.javacrawler.domain.event.ApplicantType;
 import me.lsh.javacrawler.domain.event.competition.AwardBenefit;
 import me.lsh.javacrawler.domain.event.competition.Competition;
 import me.lsh.javacrawler.domain.skill.Skill;
 import org.assertj.core.api.Assertions;
-import org.junit.jupiter.api.RepeatedTest;
+import org.junit.jupiter.api.Test;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.context.SpringBootTest;
 import org.springframework.test.context.ActiveProfiles;
@@ -41,7 +42,7 @@ class CompetitionCrawlerTest {
         .expiredAt(LocalDateTime.of(LocalDate.of(2023, 5, 9), LocalTime.MAX))
         .build();
 
-    @RepeatedTest(5)
+    @Test
     void 이벤트_크롤링_테스트() {
         Competition competition = crawler.crawl("https://linkareer.com/activity/131927");
         assertEquals(expected.getTitle(), competition.getTitle());

@@ -13,10 +13,10 @@ import java.time.LocalTime;
 import java.util.List;
 import java.util.Set;
 import java.util.UUID;
-import me.lsh.javacrawler.controller.dto.CompetitionSearch;
+import me.lsh.javacrawler.controller.event.dto.CompetitionSearch;
 import me.lsh.javacrawler.domain.event.EventProvider;
 import me.lsh.javacrawler.domain.event.competition.Competition.CompetitionBuilder;
-import me.lsh.javacrawler.repository.event.DateOption;
+import me.lsh.javacrawler.controller.event.dto.DateOption;
 import me.lsh.javacrawler.repository.event.competition.CompetitionRepository;
 import me.lsh.javacrawler.service.dto.CompetitionListResponseDto;
 import org.assertj.core.api.Assertions;
@@ -26,9 +26,11 @@ import org.springframework.boot.test.autoconfigure.orm.jpa.DataJpaTest;
 import org.springframework.context.annotation.Import;
 import org.springframework.data.domain.Page;
 import org.springframework.data.domain.PageRequest;
+import org.springframework.test.context.ActiveProfiles;
 
 
 @DataJpaTest
+@ActiveProfiles("test")
 @Import({TestJPAConfig.class})
 class CompetitionRepositoryTest {
 

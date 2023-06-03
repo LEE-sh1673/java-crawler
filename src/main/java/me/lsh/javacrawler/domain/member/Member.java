@@ -19,8 +19,8 @@ import javax.persistence.OneToMany;
 import lombok.Builder;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
-import me.lsh.javacrawler.domain.BaseTimeEntity;
-import me.lsh.javacrawler.domain.event.BookmarkEvent;
+import me.lsh.javacrawler.common.domain.BaseTimeEntity;
+import me.lsh.javacrawler.domain.bookmark.BookmarkEvent;
 import me.lsh.javacrawler.domain.skill.Skill;
 
 @Getter

@@ -1,7 +1,7 @@
 package me.lsh.javacrawler.service.member;
 
 import lombok.RequiredArgsConstructor;
-import me.lsh.javacrawler.controller.dto.SkillSearch;
+import me.lsh.javacrawler.controller.member.dto.SkillSearch;
 import me.lsh.javacrawler.domain.member.Member;
 import me.lsh.javacrawler.repository.member.MemberRepository;
 import me.lsh.javacrawler.service.dto.MemberDto;

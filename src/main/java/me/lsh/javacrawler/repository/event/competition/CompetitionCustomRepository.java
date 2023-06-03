@@ -1,6 +1,6 @@
 package me.lsh.javacrawler.repository.event.competition;
 
-import me.lsh.javacrawler.controller.dto.CompetitionSearch;
+import me.lsh.javacrawler.controller.event.dto.CompetitionSearch;
 import me.lsh.javacrawler.service.dto.CompetitionListResponseDto;
 import org.springframework.data.domain.Page;
 import org.springframework.data.domain.Pageable;

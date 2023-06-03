@@ -1,6 +1,6 @@
 package me.lsh.javacrawler.repository.event.moim;
 
-import me.lsh.javacrawler.controller.dto.MoimSearch;
+import me.lsh.javacrawler.controller.event.dto.MoimSearch;
 import me.lsh.javacrawler.service.dto.MoimListResponseDto;
 import org.springframework.data.domain.Page;
 import org.springframework.data.domain.Pageable;

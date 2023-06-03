@@ -2,16 +2,18 @@ package me.lsh.javacrawler.aspect;
 
 
 import lombok.RequiredArgsConstructor;
-import me.lsh.javacrawler.controller.CompetitionCrawlerController;
-import me.lsh.javacrawler.crawler.CompetitionCrawlerReport;
-import me.lsh.javacrawler.crawler.EventCrawlerReport;
-import me.lsh.javacrawler.crawler.MoimCrawlerReport;
+import lombok.extern.slf4j.Slf4j;
+import me.lsh.javacrawler.controller.crawler.CompetitionCrawlerController;
+import me.lsh.javacrawler.domain.crawler.CompetitionCrawlerReport;
+import me.lsh.javacrawler.domain.crawler.EventCrawlerReport;
+import me.lsh.javacrawler.domain.crawler.MoimCrawlerReport;
 import org.aspectj.lang.JoinPoint;
 import org.aspectj.lang.ProceedingJoinPoint;
 import org.aspectj.lang.annotation.Around;
 import org.aspectj.lang.annotation.Aspect;
 import org.springframework.stereotype.Component;
 
+@Slf4j
 @Aspect
 @Component
 @RequiredArgsConstructor
@@ -30,7 +32,7 @@ public class CrawlReportAspect {
         try {
             object = joinPoint.proceed();
         } catch (Throwable e) {
-            e.printStackTrace();
+            log.error("Crawl Error = {}", e.getMessage());
             report.report(e.getMessage());
         } finally {
             report.report("크롤링 종료");

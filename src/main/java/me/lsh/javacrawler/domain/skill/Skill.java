@@ -1,7 +1,6 @@
 package me.lsh.javacrawler.domain.skill;
 
 import java.util.List;
-import java.util.Objects;
 import lombok.Getter;
 
 @Getter
@@ -39,7 +38,11 @@ public enum Skill {
     BACKEND(31, List.of("backend", "back-end", "백엔드")),
     FRONTEND(32, List.of("frontend", "front-end", "프론트엔드", "프론트")),
     FULLSTACK(33, List.of("fullstack", "full-stack", "풀스택")),
-    NO_SKILL(34, List.of("관련기술 없음"));
+    NESTJS(34, List.of("nestjs", "네스트js", "네스트")),
+    NODEJS(35, List.of("nodejs", "노드js")),
+    SQL(36, List.of("sql")),
+    EMBEDDED(37, List.of("embedded", "임베디드")),
+    NO_SKILL(38, List.of("관련기술 없음"));
 
     private final int code;
 

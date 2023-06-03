@@ -3,16 +3,13 @@ package me.lsh.javacrawler.parser.moim.festa;
 import static org.junit.jupiter.api.Assertions.assertEquals;
 import static org.junit.jupiter.api.Assertions.assertFalse;
 
-import me.lsh.javacrawler.config.driver.DriverConfig;
 import me.lsh.javacrawler.crawler.TestCrawlerConfig;
-import me.lsh.javacrawler.parser.event.moim.festa.RootElementParser;
+import me.lsh.javacrawler.domain.parser.event.moim.festa.RootElementParser;
 import org.jsoup.Jsoup;
 import org.junit.jupiter.api.BeforeAll;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 import org.openqa.selenium.WebDriver;
-import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.boot.test.context.SpringBootTest;
 import org.springframework.context.annotation.Import;
 
 @Import({TestCrawlerConfig.class})

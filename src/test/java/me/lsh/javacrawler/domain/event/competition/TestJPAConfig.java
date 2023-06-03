@@ -3,7 +3,7 @@ package me.lsh.javacrawler.domain.event.competition;
 import com.querydsl.jpa.impl.JPAQueryFactory;
 import javax.persistence.EntityManager;
 import javax.persistence.PersistenceContext;
-import me.lsh.javacrawler.repository.event.competition.EventCriteriaBuilder;
+import me.lsh.javacrawler.repository.event.EventCriteriaBuilder;
 import org.springframework.boot.test.context.TestConfiguration;
 import org.springframework.context.annotation.Bean;
 

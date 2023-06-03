@@ -206,7 +206,13 @@ document.addEventListener('DOMContentLoaded', () => {
       mirror: false
     });
   }
+
+  function table_init() {
+    document.querySelectorAll("table").forEach(
+        table => table.classList.add("table"));
+  }
   window.addEventListener('load', () => {
     aos_init();
+    table_init();
   });
 });

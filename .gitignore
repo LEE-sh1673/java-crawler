@@ -36,3 +36,5 @@ out/
 .vscode/
 
 application-oauth.properties
+
+src/test/java/me/lsh/javacrawler/service/recommend/

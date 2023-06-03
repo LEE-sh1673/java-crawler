@@ -20,7 +20,7 @@ public class QEvent extends EntityPathBase<Event> {
 
     public static final QEvent event = new QEvent("event");
 
-    public final me.lsh.javacrawler.domain.QBaseTimeEntity _super = new me.lsh.javacrawler.domain.QBaseTimeEntity(this);
+    public final me.lsh.javacrawler.common.domain.QBaseTimeEntity _super = new me.lsh.javacrawler.common.domain.QBaseTimeEntity(this);
 
     public final SetPath<ApplicantType, EnumPath<ApplicantType>> applicants = this.<ApplicantType, EnumPath<ApplicantType>>createSet("applicants", ApplicantType.class, EnumPath.class, PathInits.DIRECT2);
 

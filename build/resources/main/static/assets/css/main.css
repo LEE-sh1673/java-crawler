@@ -64,7 +64,7 @@
 body {
   font-family: var(--font-default);
   font-size: 1rem;
-  color: var(--color-default);
+  color: var(--blue-600);
   overflow-x: hidden;
 }
 
@@ -157,6 +157,10 @@ section {
 #skill-form,
 .filter-control .form-group__search {
   padding: 0 12px;
+}
+
+.bookmark__close {
+  padding: 0;
 }
 
 .bookmark__close i {
@@ -644,6 +648,21 @@ section {
     transition: 0.5s;
     z-index: 9999;
     padding-right: 10px;
+  }
+
+  .moims .mobile-nav-show,
+  .competitions .mobile-nav-show {
+    color: var(--blue-400);
+  }
+
+  .navbar ul {
+    flex-direction: column;
+    align-items: start;
+  }
+
+  .navbar ul #navbar__auth {
+    justify-content: start;
+    padding: 10px 20px;
   }
 
   .mobile-nav-hide {
@@ -2229,8 +2248,8 @@ section {
   background: #FFFFFF;
   color: var(--blue-500);
   border: 1px solid #98A8B9;
-  box-shadow: 0px 1px 1px #98A8B9;
-  border-radius: 16px;
+  box-shadow: 0 1px 1px #98A8B9;
+  border-radius: 24px;
   font-size: 0.8725rem;
   display: flex;
   align-items: center;
@@ -2667,19 +2686,56 @@ section {
   object-fit: cover;
 }
 
+.moim__content,
 .competition__content {
   box-sizing: border-box;
   margin: 1.5rem 0;
-  padding: 2rem 4rem;
+  padding: 4rem;
   border-radius: 8px;
   background: var(--white);
   border: 1px solid var(--blue-300);
+}
+
+.moim__content {
+  padding: 2rem 4rem;
 }
 
 .profile__container {
   border-radius: 8px;
   background: var(--white);
   border: 1px solid var(--blue-300);
+}
+
+.recommend__nav {
+  background: transparent;
+  border: none;
+  padding-left: .5rem !important;
+  padding-right: .5rem !important;
+  padding-bottom: 0 !important;
+}
+
+.recommend__nav .recommend__nav-item {
+  font-weight: 500;
+  font-size: 1.125rem;
+  color: var(--blue-400);
+  cursor: pointer;
+}
+
+.recommend__nav .recommend__nav-item.active {
+  color: var(--blue);
+  font-weight: 600;
+}
+
+.profile__container.profile__container__dashed {
+  border: 3px dashed var(--blue-300);
+  font-size: 1.125rem;
+  color: var(--blue-500);
+  font-weight: 500;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: transparent;
+  gap: .75rem;
 }
 
 .profile__recommend {
@@ -2694,6 +2750,12 @@ section {
   box-shadow: 0px 4px 8px rgba(215, 226, 235, 0.15);
   border-radius: 8px;
   background: linear-gradient(to right, rgba(0, 120, 255, 0.8), #0078FF), url("/assets/img/recommend_cover.png") center;
+}
+
+#navbar__auth {
+  width: 100%;
+  display: flex;
+  justify-content: flex-end;
 }
 
 .profile__recommend__wrapper {
@@ -2770,6 +2832,7 @@ section {
 .bookmark__title {
   color: var(--blue-500);
   font-size: 1.0625rem;
+  margin: 0;
 }
 
 .bookmark__date {
@@ -2786,6 +2849,13 @@ section {
 .bookmark__thumbnail {
   aspect-ratio: 1/1;
   object-fit: contain;
+  background: var(--blue-300);
+  border-radius: 8px
+}
+
+.bookmark__thumbnail.moim__thumbnail {
+  aspect-ratio: 16/9;
+  object-fit: cover;
 }
 
 .profile__content {
@@ -2798,7 +2868,6 @@ section {
 }
 
 .competition__date .post-date {
-  margin-bottom: 1rem;
   font-size: 1rem;
 }
 
@@ -2812,8 +2881,38 @@ section {
 
 #competition .post-content * {
   font-family: var(--font-default) !important;
-  min-font-size: 1rem;
 }
+
+#competition .post-content {
+  font-size: 1.0625rem;
+  font-weight: normal;
+}
+
+#competition .post-content h1, h2, h3, h4, h5 {
+  line-height: 1.5;
+  font-weight: 600;
+  margin: 1rem 0;
+}
+
+#competition .post-content h1  {
+  font-size: 2rem;
+}
+
+#competition .post-content h2  {
+  font-size: 1.75rem;
+}
+
+#competition .post-content p + h1 {
+  margin-top: 2.25rem;
+}
+#competition .post-content p + h2 {
+  margin-top: 2rem;
+}
+
+#competition .post-content img {
+  margin: 1rem 0;
+}
+
 
 .blog .posts-list .meta i {
   font-size: 16px;

@@ -41,7 +41,7 @@
             </div>
           </div>
           <div
-              th:with="hasBookmark = ${competitions.totalElements + moims.totalElements <= 10}">
+              th:with="hasBookmark = ${competitions.totalElements <= 5 or moims.totalElements <= 5}">
             <div
                 th:unless="${hasBookmark}"
                 class="profile__container profile__recommend profile__meta d-flex gap-5">
@@ -51,15 +51,16 @@
                   <h3>당신을 위해 준비한 공고를 확인해보세요.</h3>
                 </div>
                 <div class="profile__recommend-btn">
-                  <a th:href="@{/recommends}" class="d-flex gap-1">
+                  <a th:href="@{/recommends/competitions}" class="d-flex gap-1">
                     <span>확인하러 가기</span>
                     <i class="bi bi-arrow-right"></i>
                   </a>
                 </div>
               </div>
             </div>
-            <div th:if="${hasBookmark}" class="profile__container profile__meta">
-              <span class="competition__meta opacity-75">
+            <div th:if="${hasBookmark}" class="profile__container profile__meta profile__container__dashed">
+              <i class="bi bi-question-circle opacity-75"></i>
+              <span class="opacity-75">
                 마음에 드는 공고를 북마크 해보세요. 더 편리한 기능을 제공해드릴게요 :)
               </span>
             </div>
@@ -170,7 +171,7 @@
                       </div>
                       <div class="w-100">
                         <div
-                            class="d-flex align-items-center justify-content-between gap-4 w-100">
+                            class="d-flex align-items-center justify-content-between gap-4 w-100 mb-2">
                           <a th:href="@{/competitions/{id}(id=*{id})}">
                             <h5 class="bookmark__title" th:text="*{title}"></h5>
                           </a>
@@ -274,7 +275,7 @@
                        th:object="${bookmark.event}"
                        class="border-bottom w-100 pb-3 pt-3">
                     <div>
-                      <div class="d-flex align-items-center justify-content-between gap-4">
+                      <div class="d-flex align-items-center justify-content-between gap-4 mb-2">
                         <a th:href="@{/moims/{id}(id=*{id})}">
                           <h5 class="bookmark__title" th:text="*{title}"></h5>
                         </a>
