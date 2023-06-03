@@ -1,4 +1,4 @@
-package me.lsh.javacrawler.domain.event.competition;
+package me.lsh.javacrawler.config;
 
 import com.querydsl.jpa.impl.JPAQueryFactory;
 import javax.persistence.EntityManager;

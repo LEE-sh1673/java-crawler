@@ -3,7 +3,7 @@ package me.lsh.javacrawler.parser.moim.festa;
 import static org.junit.jupiter.api.Assertions.assertNotEquals;
 
 import java.util.Set;
-import me.lsh.javacrawler.crawler.TestCrawlerConfig;
+import me.lsh.javacrawler.config.TestCrawlerConfig;
 import me.lsh.javacrawler.domain.parser.event.moim.MoimLinkParser;
 import me.lsh.javacrawler.domain.parser.event.moim.festa.FestaLinkParser;
 import org.jsoup.Jsoup;

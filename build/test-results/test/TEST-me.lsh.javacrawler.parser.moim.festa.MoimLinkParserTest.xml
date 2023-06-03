@@ -1,13 +1,13 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<testsuite name="me.lsh.javacrawler.parser.moim.festa.MoimLinkParserTest" tests="1" skipped="0" failures="0" errors="0" timestamp="2023-06-03T21:32:10" hostname="DESKTOP-0OQVVMP" time="0.036">
+<testsuite name="me.lsh.javacrawler.parser.moim.festa.MoimLinkParserTest" tests="1" skipped="0" failures="0" errors="0" timestamp="2023-06-03T21:38:10" hostname="DESKTOP-0OQVVMP" time="0.033">
   <properties/>
-  <testcase name="전체_링크_파싱()" classname="me.lsh.javacrawler.parser.moim.festa.MoimLinkParserTest" time="0.036"/>
-  <system-out><![CDATA[2023-06-04 06:32:07.328  INFO 20376 --- [ null to remote] o.o.selenium.remote.ProtocolHandshake    : Detected dialect: W3C
-2023-06-04 06:32:07.342  WARN 20376 --- [    Test worker] o.o.selenium.devtools.CdpVersionFinder   : Unable to find an exact match for CDP version 113, so returning the closest version found: a no-op implementation
-2023-06-04 06:32:07.342  INFO 20376 --- [    Test worker] o.o.selenium.devtools.CdpVersionFinder   : Unable to find CDP implementation matching 113.
-2023-06-04 06:32:07.342  WARN 20376 --- [    Test worker] o.o.selenium.chromium.ChromiumDriver     : Unable to find version of CDP to use for . You may need to include a dependency on a specific version of the CDP using something similar to `org.seleniumhq.selenium:selenium-devtools-v86:4.1.4` where the version ("v86") matches the version of the chromium-based browser you're using and the version number of the artifact is the same as Selenium's.
+  <testcase name="전체_링크_파싱()" classname="me.lsh.javacrawler.parser.moim.festa.MoimLinkParserTest" time="0.033"/>
+  <system-out><![CDATA[2023-06-04 06:38:07.430  INFO 38096 --- [ null to remote] o.o.selenium.remote.ProtocolHandshake    : Detected dialect: W3C
+2023-06-04 06:38:07.443  WARN 38096 --- [    Test worker] o.o.selenium.devtools.CdpVersionFinder   : Unable to find an exact match for CDP version 113, so returning the closest version found: a no-op implementation
+2023-06-04 06:38:07.444  INFO 38096 --- [    Test worker] o.o.selenium.devtools.CdpVersionFinder   : Unable to find CDP implementation matching 113.
+2023-06-04 06:38:07.444  WARN 38096 --- [    Test worker] o.o.selenium.chromium.ChromiumDriver     : Unable to find version of CDP to use for . You may need to include a dependency on a specific version of the CDP using something similar to `org.seleniumhq.selenium:selenium-devtools-v86:4.1.4` where the version ("v86") matches the version of the chromium-based browser you're using and the version number of the artifact is the same as Selenium's.
 ]]></system-out>
-  <system-err><![CDATA[Starting ChromeDriver 113.0.5672.63 (0e1a4471d5ae5bf128b1bd8f4d627c8cbd55f70c-refs/branch-heads/5672@{#912}) on port 60137
+  <system-err><![CDATA[Starting ChromeDriver 113.0.5672.63 (0e1a4471d5ae5bf128b1bd8f4d627c8cbd55f70c-refs/branch-heads/5672@{#912}) on port 56254
 Only local connections are allowed.
 Please see https://chromedriver.chromium.org/security-considerations for suggestions on keeping ChromeDriver safe.
 ChromeDriver was started successfully.
