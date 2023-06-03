@@ -1,8 +1,8 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<testsuite name="me.lsh.javacrawler.domain.event.competition.AwardScaleTest" tests="3" skipped="0" failures="0" errors="0" timestamp="2023-06-03T20:59:17" hostname="DESKTOP-0OQVVMP" time="0.001">
+<testsuite name="me.lsh.javacrawler.domain.event.competition.AwardScaleTest" tests="3" skipped="0" failures="0" errors="0" timestamp="2023-06-03T21:32:06" hostname="DESKTOP-0OQVVMP" time="0.001">
   <properties/>
   <testcase name="시상규모_5천이상()" classname="me.lsh.javacrawler.domain.event.competition.AwardScaleTest" time="0.0"/>
-  <testcase name="시상규모_1천만미만()" classname="me.lsh.javacrawler.domain.event.competition.AwardScaleTest" time="0.001"/>
+  <testcase name="시상규모_1천만미만()" classname="me.lsh.javacrawler.domain.event.competition.AwardScaleTest" time="0.0"/>
   <testcase name="시상규모_1천이상_3천미만()" classname="me.lsh.javacrawler.domain.event.competition.AwardScaleTest" time="0.0"/>
   <system-out><![CDATA[]]></system-out>
   <system-err><![CDATA[]]></system-err>
