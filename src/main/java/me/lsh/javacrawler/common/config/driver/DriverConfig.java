@@ -26,12 +26,11 @@ public class DriverConfig {
     @Bean
     @Scope("singleton")
     public WebDriver chromeDriver() {
-        ChromeDriver driver = new ChromeDriver(chromeOptions());
-//        driver
+        //        driver
 //            .manage()
 //            .timeouts()
 //            .pageLoadTimeout(Duration.of(30, ChronoUnit.SECONDS));
-        return driver;
+        return new ChromeDriver(chromeOptions());
     }
 
 
@@ -41,17 +40,16 @@ public class DriverConfig {
         System.setProperty(WEB_DRIVER_ID, determineWebDriverPath(os));
 
         ChromeOptions options = new ChromeOptions();
-        options.addArguments("lang=ko");
         options.addArguments("--no-sandbox");
         options.addArguments("--headless");
-        options.addArguments("--disable-gpu");
-        options.addArguments("--disable-extensions");
-        options.addArguments("--window-size=1512,1080");
         options.addArguments("--disable-dev-shm-usage");
-        options.addArguments("--disable-popup-blocking");
-        options.addArguments("--remote-allow-origins=*");
+        options.addArguments("--disable-gpu");
+        options.addArguments("--window-size=1512,1080");
         options.addArguments(
             "user-agent=Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/605.1.15 (KHTML, like Gecko) Chrome/106.0.0.0 Safari/605.1.15");
+        options.addArguments("lang=ko");
+        options.setCapability("ignoreProtectedModeSettings", true);
+        options.addArguments("--remote-allow-origins=*");
         return options;
     }
 
