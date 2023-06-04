@@ -44,12 +44,12 @@ public class DriverConfig {
         options.addArguments("--headless");
         options.addArguments("--disable-dev-shm-usage");
         options.addArguments("--disable-gpu");
+        options.addArguments("--disable-extensions");
         options.addArguments("--window-size=1512,1080");
         options.addArguments(
             "user-agent=Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/605.1.15 (KHTML, like Gecko) Chrome/106.0.0.0 Safari/605.1.15");
         options.addArguments("lang=ko");
         options.setCapability("ignoreProtectedModeSettings", true);
-        options.addArguments("--remote-allow-origins=*");
         return options;
     }
 
