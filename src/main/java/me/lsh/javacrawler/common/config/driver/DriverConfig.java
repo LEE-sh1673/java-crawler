@@ -40,7 +40,7 @@ public class DriverConfig {
 
         ChromeOptions options = new ChromeOptions();
         options.addArguments("--no-sandbox");
-        options.setBinary(driverPath);
+        options.setBinary("/usr/bin/google-chrome");
         options.addArguments("--headless");
         options.addArguments("--disable-dev-shm-usage");
         options.addArguments("--disable-gpu");
