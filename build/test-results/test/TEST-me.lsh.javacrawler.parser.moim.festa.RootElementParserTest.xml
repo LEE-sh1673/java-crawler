@@ -1,24 +1,24 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<testsuite name="me.lsh.javacrawler.parser.moim.festa.RootElementParserTest" tests="6" skipped="0" failures="0" errors="0" timestamp="2023-06-04T00:37:14" hostname="DESKTOP-0OQVVMP" time="0.088">
+<testsuite name="me.lsh.javacrawler.parser.moim.festa.RootElementParserTest" tests="6" skipped="0" failures="0" errors="0" timestamp="2023-06-04T01:20:53" hostname="DESKTOP-0OQVVMP" time="0.095">
   <properties/>
-  <testcase name="유료_여부_파싱()" classname="me.lsh.javacrawler.parser.moim.festa.RootElementParserTest" time="0.016"/>
-  <testcase name="주최자_파싱()" classname="me.lsh.javacrawler.parser.moim.festa.RootElementParserTest" time="0.017"/>
-  <testcase name="썸네일_파싱()" classname="me.lsh.javacrawler.parser.moim.festa.RootElementParserTest" time="0.014"/>
-  <testcase name="기간_파싱()" classname="me.lsh.javacrawler.parser.moim.festa.RootElementParserTest" time="0.014"/>
-  <testcase name="장소_파싱()" classname="me.lsh.javacrawler.parser.moim.festa.RootElementParserTest" time="0.011"/>
-  <testcase name="제목_파싱()" classname="me.lsh.javacrawler.parser.moim.festa.RootElementParserTest" time="0.012"/>
-  <system-out><![CDATA[2023-06-04 09:37:12.454  INFO 59588 --- [ null to remote] o.o.selenium.remote.ProtocolHandshake    : Detected dialect: W3C
-2023-06-04 09:37:12.466  WARN 59588 --- [    Test worker] o.o.selenium.devtools.CdpVersionFinder   : Unable to find an exact match for CDP version 113, so returning the closest version found: a no-op implementation
-2023-06-04 09:37:12.466  INFO 59588 --- [    Test worker] o.o.selenium.devtools.CdpVersionFinder   : Unable to find CDP implementation matching 113.
-2023-06-04 09:37:12.466  WARN 59588 --- [    Test worker] o.o.selenium.chromium.ChromiumDriver     : Unable to find version of CDP to use for . You may need to include a dependency on a specific version of the CDP using something similar to `org.seleniumhq.selenium:selenium-devtools-v86:4.1.4` where the version ("v86") matches the version of the chromium-based browser you're using and the version number of the artifact is the same as Selenium's.
-2023-06-04 09:37:14.814  INFO 59588 --- [    Test worker] m.l.j.d.p.e.m.festa.RootElementParser    : 비용 파싱 = 무료
-2023-06-04 09:37:14.833  INFO 59588 --- [    Test worker] m.l.j.d.p.e.m.festa.RootElementParser    : 주최기관 파싱 = 직장인상담코칭
-2023-06-04 09:37:14.848  INFO 59588 --- [    Test worker] m.l.j.d.p.e.m.festa.RootElementParser    : 썸네일 파싱 = https://cf.festa.io/img/2022-12-31/9db969a2-14f4-444e-96dd-87db64d46867.PNG
-2023-06-04 09:37:14.862  INFO 59588 --- [    Test worker] m.l.j.d.p.e.m.festa.RootElementParser    : 기간 파싱 = 2023년 12월 31일 (일) 오후 04:00 - 오후 05:00
-2023-06-04 09:37:14.874  INFO 59588 --- [    Test worker] m.l.j.d.p.e.m.festa.RootElementParser    : 장소 파싱 = at 서울 강남구
-2023-06-04 09:37:14.887  INFO 59588 --- [    Test worker] m.l.j.d.p.e.m.festa.RootElementParser    : 제목 파싱 = [무료상담] 직장인 고민상담 코칭
+  <testcase name="유료_여부_파싱()" classname="me.lsh.javacrawler.parser.moim.festa.RootElementParserTest" time="0.017"/>
+  <testcase name="주최자_파싱()" classname="me.lsh.javacrawler.parser.moim.festa.RootElementParserTest" time="0.015"/>
+  <testcase name="썸네일_파싱()" classname="me.lsh.javacrawler.parser.moim.festa.RootElementParserTest" time="0.015"/>
+  <testcase name="기간_파싱()" classname="me.lsh.javacrawler.parser.moim.festa.RootElementParserTest" time="0.015"/>
+  <testcase name="장소_파싱()" classname="me.lsh.javacrawler.parser.moim.festa.RootElementParserTest" time="0.013"/>
+  <testcase name="제목_파싱()" classname="me.lsh.javacrawler.parser.moim.festa.RootElementParserTest" time="0.019"/>
+  <system-out><![CDATA[2023-06-04 10:20:51.623  INFO 87868 --- [ null to remote] o.o.selenium.remote.ProtocolHandshake    : Detected dialect: W3C
+2023-06-04 10:20:51.637  WARN 87868 --- [    Test worker] o.o.selenium.devtools.CdpVersionFinder   : Unable to find an exact match for CDP version 113, so returning the closest version found: a no-op implementation
+2023-06-04 10:20:51.637  INFO 87868 --- [    Test worker] o.o.selenium.devtools.CdpVersionFinder   : Unable to find CDP implementation matching 113.
+2023-06-04 10:20:51.637  WARN 87868 --- [    Test worker] o.o.selenium.chromium.ChromiumDriver     : Unable to find version of CDP to use for . You may need to include a dependency on a specific version of the CDP using something similar to `org.seleniumhq.selenium:selenium-devtools-v86:4.1.4` where the version ("v86") matches the version of the chromium-based browser you're using and the version number of the artifact is the same as Selenium's.
+2023-06-04 10:20:53.997  INFO 87868 --- [    Test worker] m.l.j.d.p.e.m.festa.RootElementParser    : 비용 파싱 = 무료
+2023-06-04 10:20:54.013  INFO 87868 --- [    Test worker] m.l.j.d.p.e.m.festa.RootElementParser    : 주최기관 파싱 = 직장인상담코칭
+2023-06-04 10:20:54.028  INFO 87868 --- [    Test worker] m.l.j.d.p.e.m.festa.RootElementParser    : 썸네일 파싱 = https://cf.festa.io/img/2022-12-31/9db969a2-14f4-444e-96dd-87db64d46867.PNG
+2023-06-04 10:20:54.043  INFO 87868 --- [    Test worker] m.l.j.d.p.e.m.festa.RootElementParser    : 기간 파싱 = 2023년 12월 31일 (일) 오후 04:00 - 오후 05:00
+2023-06-04 10:20:54.056  INFO 87868 --- [    Test worker] m.l.j.d.p.e.m.festa.RootElementParser    : 장소 파싱 = at 서울 강남구
+2023-06-04 10:20:54.075  INFO 87868 --- [    Test worker] m.l.j.d.p.e.m.festa.RootElementParser    : 제목 파싱 = [무료상담] 직장인 고민상담 코칭
 ]]></system-out>
-  <system-err><![CDATA[Starting ChromeDriver 113.0.5672.63 (0e1a4471d5ae5bf128b1bd8f4d627c8cbd55f70c-refs/branch-heads/5672@{#912}) on port 64016
+  <system-err><![CDATA[Starting ChromeDriver 113.0.5672.63 (0e1a4471d5ae5bf128b1bd8f4d627c8cbd55f70c-refs/branch-heads/5672@{#912}) on port 60230
 Only local connections are allowed.
 Please see https://chromedriver.chromium.org/security-considerations for suggestions on keeping ChromeDriver safe.
 ChromeDriver was started successfully.
