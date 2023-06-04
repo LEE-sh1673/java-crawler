@@ -24,7 +24,6 @@ public class DriverConfig {
 
 
     @Bean
-    @Scope("singleton")
     public WebDriver chromeDriver() {
         //        driver
 //            .manage()
