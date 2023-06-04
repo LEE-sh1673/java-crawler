@@ -6,7 +6,6 @@ import org.openqa.selenium.chrome.ChromeOptions;
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
-import org.springframework.context.annotation.Scope;
 
 @Configuration
 public class DriverConfig {
@@ -36,10 +35,12 @@ public class DriverConfig {
     @Bean
     public ChromeOptions chromeOptions() {
         String os = System.getProperty("os.name").toLowerCase();
-        System.setProperty(WEB_DRIVER_ID, determineWebDriverPath(os));
+        String driverPath = determineWebDriverPath(os);
+        System.setProperty(WEB_DRIVER_ID, driverPath);
 
         ChromeOptions options = new ChromeOptions();
         options.addArguments("--no-sandbox");
+        options.setBinary(driverPath);
         options.addArguments("--headless");
         options.addArguments("--disable-dev-shm-usage");
         options.addArguments("--disable-gpu");
