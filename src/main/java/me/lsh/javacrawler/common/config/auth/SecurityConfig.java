@@ -26,7 +26,7 @@ public class SecurityConfig {
             .and()
             .authorizeRequests()
             .antMatchers("/", "/competitions/**", "/moims/**", "/login/**",
-                "/assets/**").permitAll()
+                "/assets/**", "/h2-console/**").permitAll()
             .antMatchers("/profile/**", "/api/v1/**").hasRole(Role.GUEST.name())
             .anyRequest().authenticated()
             .and()

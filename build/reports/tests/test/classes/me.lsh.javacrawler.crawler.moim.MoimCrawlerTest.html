@@ -41,7 +41,7 @@
 </td>
 <td>
 <div class="infoBox" id="duration">
-<div class="counter">2.644s</div>
+<div class="counter">3.569s</div>
 <p>duration</p>
 </div>
 </td>
@@ -79,7 +79,7 @@
 </thead>
 <tr>
 <td class="success">이벤트_크롤링_테스트()</td>
-<td class="success">2.644s</td>
+<td class="success">3.569s</td>
 <td class="success">passed</td>
 </tr>
 </table>
@@ -87,26 +87,26 @@
 <div id="tab1" class="tab">
 <h2>Standard output</h2>
 <span class="code">
-<pre>2023-06-04 07:05:49.916  INFO 65440 --- [    Test worker] .b.t.c.SpringBootTestContextBootstrapper : Neither @ContextConfiguration nor @ContextHierarchy found for test class [me.lsh.javacrawler.crawler.moim.MoimCrawlerTest], using SpringBootContextLoader
-2023-06-04 07:05:49.917  INFO 65440 --- [    Test worker] o.s.t.c.support.AbstractContextLoader    : Could not detect default resource locations for test class [me.lsh.javacrawler.crawler.moim.MoimCrawlerTest]: no resource found for suffixes {-context.xml, Context.groovy}.
-2023-06-04 07:05:49.917  INFO 65440 --- [    Test worker] t.c.s.AnnotationConfigContextLoaderUtils : Could not detect default configuration classes for test class [me.lsh.javacrawler.crawler.moim.MoimCrawlerTest]: MoimCrawlerTest does not declare any static, non-private, non-final, nested classes annotated with @Configuration.
-2023-06-04 07:05:49.924  INFO 65440 --- [    Test worker] .b.t.c.SpringBootTestContextBootstrapper : Found @SpringBootConfiguration me.lsh.javacrawler.JavaCrawlerApplication for test class me.lsh.javacrawler.crawler.moim.MoimCrawlerTest
-2023-06-04 07:05:49.927  INFO 65440 --- [    Test worker] .b.t.c.SpringBootTestContextBootstrapper : Loaded default TestExecutionListener class names from location [META-INF/spring.factories]: [org.springframework.boot.test.autoconfigure.restdocs.RestDocsTestExecutionListener, org.springframework.boot.test.autoconfigure.web.client.MockRestServiceServerResetTestExecutionListener, org.springframework.boot.test.autoconfigure.web.servlet.MockMvcPrintOnlyOnFailureTestExecutionListener, org.springframework.boot.test.autoconfigure.web.servlet.WebDriverTestExecutionListener, org.springframework.boot.test.autoconfigure.webservices.client.MockWebServiceServerTestExecutionListener, org.springframework.boot.test.mock.mockito.MockitoTestExecutionListener, org.springframework.boot.test.mock.mockito.ResetMocksTestExecutionListener, org.springframework.test.context.web.ServletTestExecutionListener, org.springframework.test.context.support.DirtiesContextBeforeModesTestExecutionListener, org.springframework.test.context.event.ApplicationEventsTestExecutionListener, org.springframework.test.context.support.DependencyInjectionTestExecutionListener, org.springframework.test.context.support.DirtiesContextTestExecutionListener, org.springframework.test.context.transaction.TransactionalTestExecutionListener, org.springframework.test.context.jdbc.SqlScriptsTestExecutionListener, org.springframework.test.context.event.EventPublishingTestExecutionListener]
-2023-06-04 07:05:49.927  INFO 65440 --- [    Test worker] .b.t.c.SpringBootTestContextBootstrapper : Using TestExecutionListeners: [org.springframework.test.context.web.ServletTestExecutionListener@12b79055, org.springframework.test.context.support.DirtiesContextBeforeModesTestExecutionListener@1cc771ae, org.springframework.test.context.event.ApplicationEventsTestExecutionListener@f6b85c3, org.springframework.boot.test.mock.mockito.MockitoTestExecutionListener@3d118651, org.springframework.boot.test.autoconfigure.SpringBootDependencyInjectionTestExecutionListener@138a8c9e, org.springframework.test.context.support.DirtiesContextTestExecutionListener@3467d540, org.springframework.test.context.transaction.TransactionalTestExecutionListener@67710b92, org.springframework.test.context.jdbc.SqlScriptsTestExecutionListener@56e32a23, org.springframework.test.context.event.EventPublishingTestExecutionListener@11caa21d, org.springframework.boot.test.autoconfigure.restdocs.RestDocsTestExecutionListener@1b0db8b1, org.springframework.boot.test.autoconfigure.web.client.MockRestServiceServerResetTestExecutionListener@74cf0dd9, org.springframework.boot.test.autoconfigure.web.servlet.MockMvcPrintOnlyOnFailureTestExecutionListener@3bb29351, org.springframework.boot.test.autoconfigure.web.servlet.WebDriverTestExecutionListener@7f2c0470, org.springframework.boot.test.autoconfigure.webservices.client.MockWebServiceServerTestExecutionListener@992f314, org.springframework.boot.test.mock.mockito.ResetMocksTestExecutionListener@5bf963a]
-2023-06-04 07:05:49.932  INFO 65440 --- [    Test worker] m.l.j.d.crawler.moim.FestaMoimCrawler    : --------------------[단일 모임 크롤링]--------------------
-2023-06-04 07:05:52.558  INFO 65440 --- [    Test worker] m.l.j.d.p.e.m.festa.FestaContentParser   : 이벤트 페이지 id 파싱 = 3021
-2023-06-04 07:05:52.559  INFO 65440 --- [    Test worker] m.l.j.d.p.e.m.festa.RootElementParser    : 제목 파싱 = [무료상담] 직장인 고민상담 코칭
-2023-06-04 07:05:52.560  INFO 65440 --- [    Test worker] m.l.j.d.p.e.m.festa.RootElementParser    : 주최기관 파싱 = 직장인상담코칭
-2023-06-04 07:05:52.560  INFO 65440 --- [    Test worker] m.l.j.d.p.e.m.festa.RootElementParser    : 장소 파싱 = at 서울 강남구
-2023-06-04 07:05:52.560  INFO 65440 --- [    Test worker] m.l.j.d.p.e.m.festa.RootElementParser    : 썸네일 파싱 = https://cf.festa.io/img/2022-12-31/9db969a2-14f4-444e-96dd-87db64d46867.PNG
-2023-06-04 07:05:52.561  INFO 65440 --- [    Test worker] m.l.j.d.p.e.m.festa.RootElementParser    : 기간 파싱 = 2023년 12월 31일 (일) 오후 04:00 - 오후 05:00
-2023-06-04 07:05:52.570  INFO 65440 --- [    Test worker] m.l.j.d.p.e.m.festa.RootElementParser    : 	 -&gt; 접수 시작 기간 파싱 = 2023-12-31T16:00
-2023-06-04 07:05:52.570  INFO 65440 --- [    Test worker] m.l.j.d.p.e.m.festa.RootElementParser    : 기간 파싱 = 2023년 12월 31일 (일) 오후 04:00 - 오후 05:00
-2023-06-04 07:05:52.570  INFO 65440 --- [    Test worker] m.l.j.d.p.e.m.festa.RootElementParser    : 	 -&gt; 접수 마감 기간 파싱 = 2023-12-31T16:00
-2023-06-04 07:05:52.570  INFO 65440 --- [    Test worker] m.l.j.d.p.e.m.festa.RootElementParser    : 비용 파싱 = 무료
-2023-06-04 07:05:52.571  INFO 65440 --- [    Test worker] m.l.j.d.p.e.m.festa.RootElementParser    : 기간 파싱 = 2023년 12월 31일 (일) 오후 04:00 - 오후 05:00
-2023-06-04 07:05:52.574  INFO 65440 --- [    Test worker] m.l.j.d.parser.skill.RegexSkillParser    : 파싱된 기술 집합 = [] / 기술 개수 = 0
-2023-06-04 07:05:52.574  INFO 65440 --- [    Test worker] m.l.j.d.crawler.moim.FestaMoimCrawler    : --------------------[단일 모임 크롤링 완료]----------------
+<pre>2023-06-04 09:37:03.375  INFO 59588 --- [    Test worker] .b.t.c.SpringBootTestContextBootstrapper : Neither @ContextConfiguration nor @ContextHierarchy found for test class [me.lsh.javacrawler.crawler.moim.MoimCrawlerTest], using SpringBootContextLoader
+2023-06-04 09:37:03.376  INFO 59588 --- [    Test worker] o.s.t.c.support.AbstractContextLoader    : Could not detect default resource locations for test class [me.lsh.javacrawler.crawler.moim.MoimCrawlerTest]: no resource found for suffixes {-context.xml, Context.groovy}.
+2023-06-04 09:37:03.377  INFO 59588 --- [    Test worker] t.c.s.AnnotationConfigContextLoaderUtils : Could not detect default configuration classes for test class [me.lsh.javacrawler.crawler.moim.MoimCrawlerTest]: MoimCrawlerTest does not declare any static, non-private, non-final, nested classes annotated with @Configuration.
+2023-06-04 09:37:03.385  INFO 59588 --- [    Test worker] .b.t.c.SpringBootTestContextBootstrapper : Found @SpringBootConfiguration me.lsh.javacrawler.JavaCrawlerApplication for test class me.lsh.javacrawler.crawler.moim.MoimCrawlerTest
+2023-06-04 09:37:03.388  INFO 59588 --- [    Test worker] .b.t.c.SpringBootTestContextBootstrapper : Loaded default TestExecutionListener class names from location [META-INF/spring.factories]: [org.springframework.boot.test.autoconfigure.restdocs.RestDocsTestExecutionListener, org.springframework.boot.test.autoconfigure.web.client.MockRestServiceServerResetTestExecutionListener, org.springframework.boot.test.autoconfigure.web.servlet.MockMvcPrintOnlyOnFailureTestExecutionListener, org.springframework.boot.test.autoconfigure.web.servlet.WebDriverTestExecutionListener, org.springframework.boot.test.autoconfigure.webservices.client.MockWebServiceServerTestExecutionListener, org.springframework.boot.test.mock.mockito.MockitoTestExecutionListener, org.springframework.boot.test.mock.mockito.ResetMocksTestExecutionListener, org.springframework.test.context.web.ServletTestExecutionListener, org.springframework.test.context.support.DirtiesContextBeforeModesTestExecutionListener, org.springframework.test.context.event.ApplicationEventsTestExecutionListener, org.springframework.test.context.support.DependencyInjectionTestExecutionListener, org.springframework.test.context.support.DirtiesContextTestExecutionListener, org.springframework.test.context.transaction.TransactionalTestExecutionListener, org.springframework.test.context.jdbc.SqlScriptsTestExecutionListener, org.springframework.test.context.event.EventPublishingTestExecutionListener]
+2023-06-04 09:37:03.388  INFO 59588 --- [    Test worker] .b.t.c.SpringBootTestContextBootstrapper : Using TestExecutionListeners: [org.springframework.test.context.web.ServletTestExecutionListener@1fae279e, org.springframework.test.context.support.DirtiesContextBeforeModesTestExecutionListener@411db18d, org.springframework.test.context.event.ApplicationEventsTestExecutionListener@7d24bd80, org.springframework.boot.test.mock.mockito.MockitoTestExecutionListener@6a28f67a, org.springframework.boot.test.autoconfigure.SpringBootDependencyInjectionTestExecutionListener@4d4ae76, org.springframework.test.context.support.DirtiesContextTestExecutionListener@28e9f6b8, org.springframework.test.context.transaction.TransactionalTestExecutionListener@70798698, org.springframework.test.context.jdbc.SqlScriptsTestExecutionListener@5d4f35cb, org.springframework.test.context.event.EventPublishingTestExecutionListener@7cc9970a, org.springframework.boot.test.autoconfigure.restdocs.RestDocsTestExecutionListener@1bf2e21d, org.springframework.boot.test.autoconfigure.web.client.MockRestServiceServerResetTestExecutionListener@2703fabd, org.springframework.boot.test.autoconfigure.web.servlet.MockMvcPrintOnlyOnFailureTestExecutionListener@34672fb, org.springframework.boot.test.autoconfigure.web.servlet.WebDriverTestExecutionListener@3387d45e, org.springframework.boot.test.autoconfigure.webservices.client.MockWebServiceServerTestExecutionListener@3f693a39, org.springframework.boot.test.mock.mockito.ResetMocksTestExecutionListener@787f97b]
+2023-06-04 09:37:03.393  INFO 59588 --- [    Test worker] m.l.j.d.crawler.moim.FestaMoimCrawler    : --------------------[단일 모임 크롤링]--------------------
+2023-06-04 09:37:06.942  INFO 59588 --- [    Test worker] m.l.j.d.p.e.m.festa.FestaContentParser   : 이벤트 페이지 id 파싱 = 3021
+2023-06-04 09:37:06.942  INFO 59588 --- [    Test worker] m.l.j.d.p.e.m.festa.RootElementParser    : 제목 파싱 = [무료상담] 직장인 고민상담 코칭
+2023-06-04 09:37:06.944  INFO 59588 --- [    Test worker] m.l.j.d.p.e.m.festa.RootElementParser    : 주최기관 파싱 = 직장인상담코칭
+2023-06-04 09:37:06.944  INFO 59588 --- [    Test worker] m.l.j.d.p.e.m.festa.RootElementParser    : 장소 파싱 = at 서울 강남구
+2023-06-04 09:37:06.945  INFO 59588 --- [    Test worker] m.l.j.d.p.e.m.festa.RootElementParser    : 썸네일 파싱 = https://cf.festa.io/img/2022-12-31/9db969a2-14f4-444e-96dd-87db64d46867.PNG
+2023-06-04 09:37:06.945  INFO 59588 --- [    Test worker] m.l.j.d.p.e.m.festa.RootElementParser    : 기간 파싱 = 2023년 12월 31일 (일) 오후 04:00 - 오후 05:00
+2023-06-04 09:37:06.953  INFO 59588 --- [    Test worker] m.l.j.d.p.e.m.festa.RootElementParser    : 	 -&gt; 접수 시작 기간 파싱 = 2023-12-31T16:00
+2023-06-04 09:37:06.953  INFO 59588 --- [    Test worker] m.l.j.d.p.e.m.festa.RootElementParser    : 기간 파싱 = 2023년 12월 31일 (일) 오후 04:00 - 오후 05:00
+2023-06-04 09:37:06.953  INFO 59588 --- [    Test worker] m.l.j.d.p.e.m.festa.RootElementParser    : 	 -&gt; 접수 마감 기간 파싱 = 2023-12-31T16:00
+2023-06-04 09:37:06.954  INFO 59588 --- [    Test worker] m.l.j.d.p.e.m.festa.RootElementParser    : 비용 파싱 = 무료
+2023-06-04 09:37:06.954  INFO 59588 --- [    Test worker] m.l.j.d.p.e.m.festa.RootElementParser    : 기간 파싱 = 2023년 12월 31일 (일) 오후 04:00 - 오후 05:00
+2023-06-04 09:37:06.958  INFO 59588 --- [    Test worker] m.l.j.d.parser.skill.RegexSkillParser    : 파싱된 기술 집합 = [] / 기술 개수 = 0
+2023-06-04 09:37:06.958  INFO 59588 --- [    Test worker] m.l.j.d.crawler.moim.FestaMoimCrawler    : --------------------[단일 모임 크롤링 완료]----------------
 </pre>
 </span>
 </div>
@@ -118,7 +118,7 @@
 <input id="line-wrapping-toggle" type="checkbox" autocomplete="off"/>
 </label>
 </div>Generated by 
-<a href="http://www.gradle.org">Gradle 7.6.1</a> at 2023. 6. 4. 오전 7:06:02</p>
+<a href="http://www.gradle.org">Gradle 7.6.1</a> at 2023. 6. 4. 오전 9:37:17</p>
 </div>
 </div>
 </body>
