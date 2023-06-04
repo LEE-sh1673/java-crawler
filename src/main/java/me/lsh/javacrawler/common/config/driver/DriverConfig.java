@@ -40,11 +40,10 @@ public class DriverConfig {
 
         ChromeOptions options = new ChromeOptions();
         options.addArguments("--no-sandbox");
-        options.setBinary("/usr/bin/google-chrome");
+        options.setBinary("/opt/google/chrome/google-chrome");
         options.addArguments("--headless");
         options.addArguments("--disable-dev-shm-usage");
         options.addArguments("--disable-gpu");
-        options.addArguments("--remote-debugging-port=9222");
         options.addArguments("--disable-extensions");
         options.addArguments("--window-size=1512,1080");
         options.addArguments(
