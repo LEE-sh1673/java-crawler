@@ -36,6 +36,8 @@ out/
 .vscode/
 
 application-oauth.properties
+application-local-crawl.properties
+application-real-db.properties
 
 src/test/
 src/test/java/me/lsh/javacrawler/service/recommend/
