@@ -37,6 +37,7 @@ out/
 
 application-oauth.properties
 
+src/test/
 src/test/java/me/lsh/javacrawler/service/recommend/
 src/test/java/me/lsh/javacrawler/crawler/
 src/test/java/me/lsh/javacrawler/parser/
