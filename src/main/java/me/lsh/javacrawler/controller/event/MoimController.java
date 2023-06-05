@@ -51,6 +51,7 @@ public class MoimController {
     @GetMapping("{id}")
     public String moim(@PathVariable final Long id, final Model model) {
         MoimResponseDto moim = moimService.findOne(id);
+        moimService.updateView(id);
         model.addAttribute("moim", moim);
 
         SessionMember member = (SessionMember) httpSession.getAttribute("member");

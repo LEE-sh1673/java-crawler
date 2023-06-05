@@ -32,4 +32,9 @@ public class CompetitionService {
             .orElseThrow(() -> new EventNotFoundException("해당 공고가 없습니다, id = " + id));
         return new CompetitionResponseDto(competition);
     }
+
+    @Transactional
+    public int updateView(final Long id) {
+        return repository.updateView(id);
+    }
 }

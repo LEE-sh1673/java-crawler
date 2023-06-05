@@ -7,12 +7,17 @@ import me.lsh.javacrawler.domain.event.competition.Competition;
 import org.springframework.data.domain.Page;
 import org.springframework.data.domain.Pageable;
 import org.springframework.data.jpa.repository.JpaRepository;
+import org.springframework.data.jpa.repository.Modifying;
 import org.springframework.data.jpa.repository.Query;
 import org.springframework.data.repository.query.Param;
 
 public interface CompetitionRepository extends JpaRepository<Competition, Long>, CompetitionCustomRepository {
 
     Optional<Competition> findByTitleAndProvider(final String title, final EventProvider provider);
+
+    @Modifying
+    @Query("update Competition c SET c.viewCount = c.viewCount + 1 where c.id = :id")
+    int updateView(@Param("id") final Long id);
 
     Page<Competition> findAll(final Pageable pageable);
 

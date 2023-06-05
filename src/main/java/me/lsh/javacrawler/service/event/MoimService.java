@@ -48,4 +48,9 @@ public class MoimService {
             .orElseThrow(() -> new EventNotFoundException("해당 모임이 없습니다, id = " + id));
         return new MoimResponseDto(moim);
     }
+
+    @Transactional
+    public int updateView(final Long id) {
+        return repository.updateView(id);
+    }
 }

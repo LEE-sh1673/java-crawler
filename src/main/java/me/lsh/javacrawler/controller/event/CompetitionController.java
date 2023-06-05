@@ -52,6 +52,7 @@ public class CompetitionController {
     @GetMapping("{id}")
     public String competition(@PathVariable final Long id, final Model model) {
         CompetitionResponseDto comp = competitionService.findOne(id);
+        competitionService.updateView(id);
         model.addAttribute("competition", comp);
 
         SessionMember member = (SessionMember) httpSession.getAttribute("member");
