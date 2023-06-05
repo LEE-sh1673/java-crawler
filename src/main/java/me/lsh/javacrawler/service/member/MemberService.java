@@ -30,4 +30,9 @@ public class MemberService {
             member.updateSkills(skillSearch.getSkills());
         }
     }
+
+    @Transactional
+    public void deleteUser(final Long memberId) {
+        memberRepository.deleteById(memberId);
+    }
 }

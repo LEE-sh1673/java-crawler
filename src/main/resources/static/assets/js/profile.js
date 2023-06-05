@@ -3,6 +3,7 @@ const loginBtn = document.querySelector("#user__login-btn");
 const skillSearch = document.querySelector("#user__skills__search");
 const bookmarkBtn = document.querySelector("#bookmark");
 const bookmarkCloseBtns = document.querySelectorAll("button.bookmark__close");
+const userWithdrawal = document.querySelector("#withdrawal");
 
 if (avatar != null) {
   const profile = document.querySelector("#user__option");
@@ -33,6 +34,18 @@ if (skillSearch != null) {
   });
 }
 
+if (userWithdrawal != null) {
+  const withdrawalForm = document.querySelector("#withdrawal__box");
+  const closeBtn = document.querySelector("#withdrawal__box__close-btn");
+
+  userWithdrawal.addEventListener("click", () => {
+    withdrawalForm.classList.toggle("d-none");
+  })
+  closeBtn.addEventListener("click", () => {
+    withdrawalForm.classList.toggle("d-none");
+  });
+}
+
 $(document).ready(function () {
 
   if (skillSearch != null) {
@@ -60,6 +73,24 @@ $(document).ready(function () {
         window.location.href = '/profile';
 
       }).fail((error) => {
+        alert(JSON.stringify(error));
+      });
+    });
+  }
+
+  if (userWithdrawal != null) {
+    $('#btn__withdrawal').on('click', () => {
+      const id = $('#member_id').val();
+
+      $.ajax({
+        type: 'DELETE',
+        url: '/api/v1/members/' + id,
+        dataType: 'Text',
+        contentType: 'application/json; charset=utf-8'
+      }).done(function () {
+        alert('탈퇴되었습니다. 지금까지 서비스를 이용해주셔서 감사합니다.')
+        window.location.href = '/';
+      }).fail(function (error) {
         alert(JSON.stringify(error));
       });
     });

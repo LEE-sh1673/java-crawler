@@ -15,8 +15,20 @@
               class="profile__background profile__container d-flex align-items-start flex-column justify-content-between mb-2 gap-4">
             <img th:data-src="${member.picture}" class="rounded-circle shadow-lg lazy"
                  style="width: 120px;" alt="Avatar"/>
-            <div class="d-flex flex-column gap-2">
-              <h2 class="profile__name" th:text="${member.name}"></h2>
+            <div class="d-flex flex-column gap-2 w-100">
+              <div class="d-flex justify-content-between w-100">
+                <h2 class="profile__name" th:text="${member.name}"></h2>
+                <button id="withdrawal" class="btn btn-outline-danger">회원 탈퇴</button>
+                <div class="profile__container d-none" id="withdrawal__box">
+                  <div class="cover d-flex flex-column gap-4">
+                    <h4>정말 서비스를 탈퇴하시겠습니까?</h4>
+                    <div class="d-flex justify-content-center gap-3">
+                      <button class="btn btn-danger" id="btn__withdrawal">네</button>
+                      <button class="btn btn-outline-secondary" id="withdrawal__box__close-btn">취소</button>
+                    </div>
+                  </div>
+                </div>
+              </div>
               <div class="d-flex align-content-start">
                 <i class="bi bi-envelope opacity-75 competition__meta"></i>
                 <div class="d-flex align-items-center ps-2">
