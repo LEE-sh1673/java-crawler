@@ -1,0 +1,9 @@
+2023-06-05 08:57:45.395 크롤링 시작
+2023-06-05 08:57:48.448 Error communicating with the remote browser. It may have died.
+Build info: version: '4.1.4', revision: '535d840ee2'
+System info: host: 'DESKTOP-0OQVVMP', ip: '172.17.64.1', os.name: 'Windows 10', os.arch: 'amd64', os.version: '10.0', java.version: '11.0.18'
+Driver info: org.openqa.selenium.chrome.ChromeDriver
+Command: [c8a439a92148d60214fd1cbc08f7ef9b, getPageSource {}]
+Capabilities {acceptInsecureCerts: false, browserName: chrome, browserVersion: 113.0.5672.129, chrome: {chromedriverVersion: 113.0.5672.63 (0e1a4471d5ae..., userDataDir: C:\Users\lsh90\AppData\Loca...}, goog:chromeOptions: {debuggerAddress: localhost:50629}, javascriptEnabled: true, networkConnectionEnabled: false, pageLoadStrategy: normal, platform: WINDOWS, platformName: WINDOWS, proxy: Proxy(), se:cdp: ws://localhost:50629/devtoo..., se:cdpVersion: 113.0.5672.129, setWindowRect: true, strictFileInteractability: false, timeouts: {implicit: 0, pageLoad: 300000, script: 30000}, unhandledPromptBehavior: dismiss and notify, webauthn:extension:credBlob: true, webauthn:extension:largeBlob: true, webauthn:extension:minPinLength: true, webauthn:extension:prf: true, webauthn:virtualAuthenticators: true}
+Session ID: c8a439a92148d60214fd1cbc08f7ef9b
+2023-06-05 08:57:48.448 크롤링 종료

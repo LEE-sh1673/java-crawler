@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<testsuite name="me.lsh.javacrawler.domain.skill.SkillTest" tests="1" skipped="0" failures="0" errors="0" timestamp="2023-06-04T01:20:44" hostname="DESKTOP-0OQVVMP" time="0.005">
+<testsuite name="me.lsh.javacrawler.domain.skill.SkillTest" tests="1" skipped="0" failures="0" errors="0" timestamp="2023-06-04T23:29:05" hostname="DESKTOP-0OQVVMP" time="0.001">
   <properties/>
-  <testcase name="containsLabelInEnglish_then_False()" classname="me.lsh.javacrawler.domain.skill.SkillTest" time="0.005"/>
+  <testcase name="containsLabelInEnglish_then_False()" classname="me.lsh.javacrawler.domain.skill.SkillTest" time="0.001"/>
   <system-out><![CDATA[]]></system-out>
   <system-err><![CDATA[]]></system-err>
 </testsuite>
